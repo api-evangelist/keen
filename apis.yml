@@ -1,0 +1,31 @@
+aid: keen
+name: Keen
+description: >-
+  Keen is an event analytics platform and API for collecting, analyzing, and visualizing custom event data.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - API Analysis
+  - Event Analytics
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/keen/refs/heads/main/apis.yml
+created: '2026-03-26'
+modified: '2026-03-26'
+specificationVersion: '0.19'
+apis:
+  - aid: keen:keen
+    name: Keen
+    description: >-
+      Keen is an event analytics platform and API for collecting, analyzing, and visualizing custom event data.
+    humanURL: https://keen.io
+    tags:
+      - API Analysis
+    properties:
+      - type: Documentation
+        url: https://keen.io/docs
+common:
+  - type: Website
+    url: https://keen.io
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
