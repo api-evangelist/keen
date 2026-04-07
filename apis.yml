@@ -9,10 +9,10 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Analytics
-  - Event Analytics
   - Custom Events
-  - Embedded Analytics
   - Data Collection
+  - Embedded Analytics
+  - Event Analytics
 url: >-
   https://raw.githubusercontent.com/api-evangelist/keen/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -30,9 +30,9 @@ apis:
     humanURL: https://keen.io/docs/api/#record-a-single-event
     tags:
       - Analytics
+      - Data Collection
       - Events
       - Ingestion
-      - Data Collection
     properties:
       - type: Documentation
         url: https://keen.io/docs/api/#record-a-single-event
@@ -46,9 +46,9 @@ apis:
       parameters for flexible multi-dimensional analysis of event data.
     humanURL: https://keen.io/docs/api/#analyses
     tags:
+      - Aggregation
       - Analytics
       - Queries
-      - Aggregation
       - Reporting
     properties:
       - type: Documentation
@@ -64,9 +64,9 @@ apis:
     humanURL: https://keen.io/docs/api/#cached-queries
     tags:
       - Analytics
-      - Queries
       - Caching
       - Performance
+      - Queries
     properties:
       - type: Documentation
         url: https://keen.io/docs/api/#cached-queries
@@ -97,9 +97,9 @@ apis:
     humanURL: https://keen.io/docs/api/#extractions
     tags:
       - Analytics
-      - Export
-      - Events
       - Data
+      - Events
+      - Export
     properties:
       - type: Documentation
         url: https://keen.io/docs/api/#extractions
