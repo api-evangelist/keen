@@ -16,7 +16,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/keen/refs/heads/main/apis.yml
 created: '2026-03-26'
-modified: '2026-03-26'
+modified: '2026-04-28'
 specificationVersion: '0.19'
 apis:
   - aid: keen:event-collection-api
@@ -26,7 +26,8 @@ apis:
       batched events to Keen for storage and analysis. Each event is a JSON
       object that can contain any arbitrary properties, giving developers full
       flexibility in defining their data model. The API supports single event
-      recording and bulk event uploads to event collections.
+      recording, multi-event uploads across collections, and inspection of
+      existing collections and properties.
     humanURL: https://keen.io/docs/api/#record-a-single-event
     tags:
       - Analytics
@@ -36,14 +37,16 @@ apis:
     properties:
       - type: Documentation
         url: https://keen.io/docs/api/#record-a-single-event
+      - type: OpenAPI
+        url: openapi/keen-event-collection-api-openapi.yml
   - aid: keen:query-api
     name: Keen Query API
     description: >-
       The Keen Query API provides a comprehensive set of analytical query types
       including count, sum, average, minimum, maximum, percentile, median,
-      count unique, select unique, extraction, funnel, and multi-analysis.
-      Queries support filters, time frames, intervals, group-by, and order-by
-      parameters for flexible multi-dimensional analysis of event data.
+      count unique, select unique, funnel, and multi-analysis. Queries support
+      filters, time frames, intervals, group-by, and time zone parameters for
+      flexible multi-dimensional analysis of event data.
     humanURL: https://keen.io/docs/api/#analyses
     tags:
       - Aggregation
@@ -53,6 +56,8 @@ apis:
     properties:
       - type: Documentation
         url: https://keen.io/docs/api/#analyses
+      - type: OpenAPI
+        url: openapi/keen-query-api-openapi.yml
   - aid: keen:cached-queries-api
     name: Keen Cached Queries API
     description: >-
@@ -70,6 +75,8 @@ apis:
     properties:
       - type: Documentation
         url: https://keen.io/docs/api/#cached-queries
+      - type: OpenAPI
+        url: openapi/keen-cached-queries-api-openapi.yml
   - aid: keen:saved-queries-api
     name: Keen Saved Queries API
     description: >-
@@ -86,6 +93,8 @@ apis:
     properties:
       - type: Documentation
         url: https://keen.io/docs/api/#saved-queries
+      - type: OpenAPI
+        url: openapi/keen-saved-queries-api-openapi.yml
   - aid: keen:data-extraction-api
     name: Keen Data Extraction API
     description: >-
@@ -103,6 +112,8 @@ apis:
     properties:
       - type: Documentation
         url: https://keen.io/docs/api/#extractions
+      - type: OpenAPI
+        url: openapi/keen-data-extraction-api-openapi.yml
 common:
   - type: Website
     url: https://keen.io

@@ -1,0 +1,185 @@
+openapi: 3.1.0
+info:
+  title: Keen Cached Queries API
+  description: >-
+    The Keen Cached Queries API allows developers to create, manage, and
+    retrieve pre-defined queries that are automatically refreshed on a
+    schedule. Cached queries improve performance for frequently accessed
+    analytics by storing pre-computed results, making them ideal for
+    powering dashboards and embedded analytics experiences without
+    incurring per-request rate limits.
+  version: '3.0'
+  contact:
+    name: Keen Support
+    url: https://keen.io/support
+  license:
+    name: Proprietary
+    url: https://keen.io/terms-of-service
+externalDocs:
+  description: Keen Cached Queries API Documentation
+  url: https://keen.io/docs/api/#cached-queries
+servers:
+  - url: https://api.keen.io/3.0
+    description: Keen production API
+tags:
+  - name: Cached Queries
+    description: Manage and retrieve cached queries that refresh on a schedule.
+paths:
+  /projects/{projectId}/queries/cached:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    get:
+      operationId: listCachedQueries
+      summary: Keen List cached queries
+      description: Returns the list of cached queries defined for the project. Requires a Master Key.
+      tags: [Cached Queries]
+      responses:
+        '200':
+          description: List of cached query metadata.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CachedQuery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/cached/{queryName}:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/queryName'
+    get:
+      operationId: getCachedQuery
+      summary: Keen Get a cached query
+      description: Returns the definition of a single cached query.
+      tags: [Cached Queries]
+      responses:
+        '200':
+          description: Cached query definition.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CachedQuery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Cached query not found.
+    put:
+      operationId: createOrUpdateCachedQuery
+      summary: Keen Create or update a cached query
+      description: Creates a new cached query or updates an existing one with the given name. Requires a Master Key.
+      tags: [Cached Queries]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CachedQueryDefinition'
+      responses:
+        '201':
+          description: Cached query created or updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CachedQuery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteCachedQuery
+      summary: Keen Delete a cached query
+      description: Removes a cached query from the project. Requires a Master Key.
+      tags: [Cached Queries]
+      responses:
+        '204':
+          description: Cached query deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/cached/{queryName}/result:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/queryName'
+    get:
+      operationId: getCachedQueryResult
+      summary: Keen Get cached query result
+      description: Returns the most recent cached result for the named query. Cached results refresh on the configured schedule.
+      tags: [Cached Queries]
+      responses:
+        '200':
+          description: Cached query result.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result: {}
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Keen project identifier.
+    queryName:
+      name: queryName
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Name of the cached query.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    CachedQueryDefinition:
+      type: object
+      required: [refresh_rate, query]
+      properties:
+        refresh_rate:
+          type: integer
+          description: Refresh interval in seconds.
+        query:
+          type: object
+          additionalProperties: true
+          description: Underlying query definition (analysis type and parameters).
+    CachedQuery:
+      allOf:
+        - $ref: '#/components/schemas/CachedQueryDefinition'
+        - type: object
+          properties:
+            query_name:
+              type: string
+            last_modified_date:
+              type: string
+              format: date-time
+            run_information:
+              type: object
+              additionalProperties: true
+    Error:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    masterKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Keen Master Key for management endpoints.
+    readKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Keen Read Key for retrieving cached results.
+security:
+  - masterKey: []
+  - readKey: []

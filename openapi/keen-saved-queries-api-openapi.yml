@@ -1,0 +1,182 @@
+openapi: 3.1.0
+info:
+  title: Keen Saved Queries API
+  description: >-
+    The Keen Saved Queries API enables developers to create and manage
+    reusable query definitions. Saved queries store query parameters as
+    named resources that can be retrieved and executed later, enabling
+    consistent analytics across applications and simplifying the management
+    of complex query configurations.
+  version: '3.0'
+  contact:
+    name: Keen Support
+    url: https://keen.io/support
+  license:
+    name: Proprietary
+    url: https://keen.io/terms-of-service
+externalDocs:
+  description: Keen Saved Queries API Documentation
+  url: https://keen.io/docs/api/#saved-queries
+servers:
+  - url: https://api.keen.io/3.0
+    description: Keen production API
+tags:
+  - name: Saved Queries
+    description: Create, manage, and execute reusable saved queries.
+paths:
+  /projects/{projectId}/queries/saved:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    get:
+      operationId: listSavedQueries
+      summary: Keen List saved queries
+      description: Returns the list of saved queries defined for the project. Requires a Master Key.
+      tags: [Saved Queries]
+      responses:
+        '200':
+          description: List of saved query metadata.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SavedQuery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/saved/{queryName}:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/queryName'
+    get:
+      operationId: getSavedQuery
+      summary: Keen Get a saved query
+      description: Returns the definition of a single saved query.
+      tags: [Saved Queries]
+      responses:
+        '200':
+          description: Saved query definition.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SavedQuery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          description: Saved query not found.
+    put:
+      operationId: createOrUpdateSavedQuery
+      summary: Keen Create or update a saved query
+      description: Creates a new saved query or updates an existing one with the given name. Requires a Master Key.
+      tags: [Saved Queries]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SavedQueryDefinition'
+      responses:
+        '201':
+          description: Saved query created or updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SavedQuery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteSavedQuery
+      summary: Keen Delete a saved query
+      description: Removes a saved query from the project. Requires a Master Key.
+      tags: [Saved Queries]
+      responses:
+        '204':
+          description: Saved query deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/saved/{queryName}/result:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/queryName'
+    get:
+      operationId: runSavedQuery
+      summary: Keen Run a saved query
+      description: Executes the saved query and returns its result. Requires a Read Key.
+      tags: [Saved Queries]
+      responses:
+        '200':
+          description: Saved query result.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result: {}
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Keen project identifier.
+    queryName:
+      name: queryName
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Name of the saved query.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    SavedQueryDefinition:
+      type: object
+      required: [query]
+      properties:
+        query:
+          type: object
+          additionalProperties: true
+          description: Underlying query definition (analysis type and parameters).
+        metadata:
+          type: object
+          additionalProperties: true
+          description: Optional metadata for the saved query.
+    SavedQuery:
+      allOf:
+        - $ref: '#/components/schemas/SavedQueryDefinition'
+        - type: object
+          properties:
+            query_name:
+              type: string
+            last_modified_date:
+              type: string
+              format: date-time
+    Error:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    masterKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Keen Master Key for management endpoints.
+    readKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Keen Read Key for executing saved queries.
+security:
+  - masterKey: []
+  - readKey: []

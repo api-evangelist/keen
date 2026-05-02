@@ -1,0 +1,229 @@
+openapi: 3.1.0
+info:
+  title: Keen Event Collection API
+  description: >-
+    The Keen Event Collection API enables developers to send individual or
+    batched events to Keen for storage and analysis. Each event is a JSON
+    object that can contain any arbitrary properties, giving developers full
+    flexibility in defining their data model. The API supports single event
+    recording, multi-event uploads across collections, and inspection of
+    existing collections and properties.
+  version: '3.0'
+  contact:
+    name: Keen Support
+    url: https://keen.io/support
+  license:
+    name: Proprietary
+    url: https://keen.io/terms-of-service
+externalDocs:
+  description: Keen Event Collection API Documentation
+  url: https://keen.io/docs/api/#event-collections
+servers:
+  - url: https://api.keen.io/3.0
+    description: Keen production API
+tags:
+  - name: Events
+    description: Record and inspect events stored in Keen event collections.
+  - name: Collections
+    description: Inspect event collection schemas and properties for a project.
+paths:
+  /projects/{projectId}/events/{eventCollection}:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/eventCollection'
+    post:
+      operationId: recordEvent
+      summary: Keen Record a single event
+      description: >-
+        Records a single event in the specified event collection for the
+        given Keen project. The request body is an arbitrary JSON object
+        whose properties become event properties. Requires a Write Key
+        with permission to record events into the project.
+      tags:
+        - Events
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Arbitrary event payload with custom properties.
+      responses:
+        '201':
+          description: Event recorded successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  created:
+                    type: boolean
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    get:
+      operationId: inspectCollection
+      summary: Keen Inspect collection schema
+      description: >-
+        Returns the inferred schema of an event collection, including the
+        names and inferred types of properties seen in events that have been
+        recorded. Requires a Master Key.
+      tags:
+        - Collections
+      responses:
+        '200':
+          description: Collection schema returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  properties:
+                    type: object
+                    additionalProperties:
+                      type: string
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/events:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    post:
+      operationId: recordEvents
+      summary: Keen Record multiple events
+      description: >-
+        Records multiple events across one or more event collections in a
+        single request. The body is a JSON object whose keys are event
+        collection names and whose values are arrays of event objects.
+        Requires a Write Key with permission to record events.
+      tags:
+        - Events
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Events recorded with per-collection results.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    get:
+      operationId: listCollections
+      summary: Keen List event collections
+      description: >-
+        Returns a list of event collections defined in the project along
+        with metadata about each collection. Requires a Master Key.
+      tags:
+        - Collections
+      responses:
+        '200':
+          description: List of event collections.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    properties:
+                      type: object
+                      additionalProperties:
+                        type: string
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/events/{eventCollection}/properties/{propertyName}:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/eventCollection'
+      - name: propertyName
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Name of the event property to inspect.
+    get:
+      operationId: inspectProperty
+      summary: Keen Inspect property
+      description: >-
+        Returns metadata about a single property in an event collection,
+        such as the inferred data type. Requires a Master Key.
+      tags:
+        - Collections
+      responses:
+        '200':
+          description: Property metadata returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  type:
+                    type: string
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Keen project identifier.
+    eventCollection:
+      name: eventCollection
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Name of the event collection.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    writeKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Keen Write Key used to record events.
+    masterKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Keen Master Key required for inspection endpoints.
+security:
+  - writeKey: []
+  - masterKey: []
