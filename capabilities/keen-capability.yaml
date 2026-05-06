@@ -1,0 +1,189 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Keen Cached Queries API
+  description: The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are
+    automatically refreshed on a schedule. Cached queries improve performance for frequently accessed analytics by storing
+    pre-computed results, making them ideal for powering dashboards and embedded analytics experiences without incurring per-request
+    rate limits.
+  tags:
+  - Keen
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: keen
+    baseUri: https://api.keen.io/3.0
+    description: Keen Cached Queries API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: Authorization
+      value: '{{KEEN_TOKEN}}'
+    resources:
+    - name: projects-projectid-queries-cached
+      path: /projects/{projectId}/queries/cached
+      operations:
+      - name: listcachedqueries
+        method: GET
+        description: Keen List cached queries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-queries-cached-queryname
+      path: /projects/{projectId}/queries/cached/{queryName}
+      operations:
+      - name: getcachedquery
+        method: GET
+        description: Keen Get a cached query
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createorupdatecachedquery
+        method: PUT
+        description: Keen Create or update a cached query
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletecachedquery
+        method: DELETE
+        description: Keen Delete a cached query
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-queries-cached-queryname-resu
+      path: /projects/{projectId}/queries/cached/{queryName}/result
+      operations:
+      - name: getcachedqueryresult
+        method: GET
+        description: Keen Get cached query result
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: keen-rest
+    description: REST adapter for Keen Cached Queries API.
+    resources:
+    - path: /projects/{projectId}/queries/cached
+      name: listcachedqueries
+      operations:
+      - method: GET
+        name: listcachedqueries
+        description: Keen List cached queries
+        call: keen.listcachedqueries
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/queries/cached/{queryName}
+      name: getcachedquery
+      operations:
+      - method: GET
+        name: getcachedquery
+        description: Keen Get a cached query
+        call: keen.getcachedquery
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/queries/cached/{queryName}
+      name: createorupdatecachedquery
+      operations:
+      - method: PUT
+        name: createorupdatecachedquery
+        description: Keen Create or update a cached query
+        call: keen.createorupdatecachedquery
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/queries/cached/{queryName}
+      name: deletecachedquery
+      operations:
+      - method: DELETE
+        name: deletecachedquery
+        description: Keen Delete a cached query
+        call: keen.deletecachedquery
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/queries/cached/{queryName}/result
+      name: getcachedqueryresult
+      operations:
+      - method: GET
+        name: getcachedqueryresult
+        description: Keen Get cached query result
+        call: keen.getcachedqueryresult
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: keen-mcp
+    transport: http
+    description: MCP adapter for Keen Cached Queries API for AI agent use.
+    tools:
+    - name: listcachedqueries
+      description: Keen List cached queries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: keen.listcachedqueries
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcachedquery
+      description: Keen Get a cached query
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: keen.getcachedquery
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createorupdatecachedquery
+      description: Keen Create or update a cached query
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: keen.createorupdatecachedquery
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletecachedquery
+      description: Keen Delete a cached query
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: keen.deletecachedquery
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcachedqueryresult
+      description: Keen Get cached query result
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: keen.getcachedqueryresult
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    KEEN_TOKEN: KEEN_TOKEN
