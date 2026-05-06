@@ -4,106 +4,100 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Keen
 providerId: keen
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - Analytics
-  - Custom Events
-  - Data Collection
-  - Embedded Analytics
-  - Event Analytics
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Keen API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  - Analytics
+  - Event Analytics
+description: Keen enforces per-minute rate limits per request type (events have no limit; ad-hoc queries
+  and extractions are 200/min; updates and deletes are 10/min). The platform also applies fuzzy per-organization
+  query concurrency limits and hard payload/response size caps. When a limit is hit all requests of that
+  type are blocked for the next minute and return 429.
+sources:
+  - https://keen.io/docs/api/
+  - https://keen.io/pricing/
 responseCodes:
   throttled: 429
   quotaExceeded: 429
-  serviceUnavailable: 503
+  queryTimeout: 504
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
+  - name: Recording events
+    scope: organization
+    metric: requests_per_minute
+    limit: -1
+    timeFrame: minute
+    notes: No documented rate limit on event ingestion.
+  - name: Ad-hoc queries
+    scope: organization
+    metric: requests_per_minute
+    limit: 200
+    timeFrame: minute
+    notes: Cached queries and datasets do not count against this limit.
+  - name: Extractions
+    scope: organization
+    metric: requests_per_minute
+    limit: 200
+    timeFrame: minute
+  - name: Updates
+    scope: organization
     metric: requests_per_minute
     limit: 10
-    burst: 20
     timeFrame: minute
-    applies:
-      - Keen Event Collection API
-      - Keen Query API
-      - Keen Cached Queries API
-      - Keen Saved Queries API
-      - Keen Data Extraction API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Keen Event Collection API
-      - Keen Query API
-      - Keen Cached Queries API
-      - Keen Saved Queries API
-      - Keen Data Extraction API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
+  - name: Deletes
+    scope: organization
+    metric: requests_per_minute
+    limit: 10
+    timeFrame: minute
+  - name: Delete a Collection
+    scope: organization
     metric: requests_per_minute
     limit: 100
-    burst: 200
     timeFrame: minute
-    applies:
-      - Keen Event Collection API
-      - Keen Query API
-      - Keen Cached Queries API
-      - Keen Saved Queries API
-      - Keen Data Extraction API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Keen Event Collection API
-      - Keen Query API
-      - Keen Cached Queries API
-      - Keen Saved Queries API
-      - Keen Data Extraction API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Keen Event Collection API
-      - Keen Query API
-      - Keen Cached Queries API
-      - Keen Saved Queries API
-      - Keen Data Extraction API
+  - name: Query concurrency
+    scope: organization
+    metric: concurrent_requests
+    limit: 'fuzzy per-organization concurrency, varies by workload'
+    notes: Returns 429 when exceeded.
+  - name: Synchronous extraction scan
+    scope: request
+    metric: events_scanned
+    limit: 1000000
+    notes: Synchronous extractions can scan up to 1M events and return up to 100K.
+  - name: Asynchronous extraction
+    scope: request
+    metric: events_extracted
+    limit: 10000000
+  - name: Response size
+    scope: request
+    metric: bytes
+    limit: 157286400
+    notes: 150 MB max response per query.
+  - name: Single event size
+    scope: request
+    metric: bytes
+    limit: 900000
+  - name: Bulk event payload size
+    scope: request
+    metric: bytes
+    limit: 10000000
+  - name: Query timeout
+    scope: request
+    metric: seconds
+    limit: 300
+    notes: Returns 504 if exceeded.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Block-and-cool
+    description: When a per-minute request-type limit is exceeded, all requests of that type are blocked
+      for the next minute. Restrictions lift automatically once volume drops below the threshold.
+  - name: Backoff
+    description: Clients should pause and retry after the one-minute window when receiving 429 responses.
+  - name: Cached-first
+    description: Cached queries and cached datasets bypass the ad-hoc query rate limit and should be preferred
+      for high-frequency dashboards.
+  - name: Concurrency tuning
+    description: Concurrency limits are fuzzy and workload-dependent; clients should serialize heavy queries
+      and batch ingestion where possible.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

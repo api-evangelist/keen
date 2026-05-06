@@ -4,149 +4,204 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Keen
 providerId: keen
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Analytics
   - Custom Events
   - Data Collection
   - Embedded Analytics
   - Event Analytics
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+description: Keen prices on tiered subscription plans (Team, Business, Custom) with included event/query
+  quotas and per-unit overages for events, queries, cached queries, and cached datasets. Annual
+  prepayment carries a 10% discount; S3 Streaming is an add-on on the Team plan.
+sources:
+  - https://keen.io/pricing/
 plans:
-  - id: keen-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the Keen API surface. Intended for evaluation, prototyping, and low-volume
-      integrations. Real limits and pricing must be reconciled with the provider's published plan documentation.
+  - id: keen-team
+    name: Team
+    type: subscription
+    description: $149/mo ($134/mo annual). 250K events, 5K queries, 5 cached queries, 5 cached datasets,
+      2-year retention.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Keen Event Collection API
-      - name: Keen Query API
-      - name: Keen Cached Queries API
-      - name: Keen Saved Queries API
-      - name: Keen Data Extraction API
-  - id: keen-pro
-    name: Professional
-    type: paid
-    description: Production tier for Keen. Provides higher quotas, priority support, and access to the
-      broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
+      - label: Monthly platform fee
+        name: team_monthly
+        type: subscription
+        metric: month
         limit: -1
         timeFrame: month
         geo: global
-        domains: []
-        unit: 1000
-        price: TBD
+        unit: 1
+        price: '149.00'
+        userMultiplied: false
+      - label: Annual platform fee (per month equivalent)
+        name: team_annual
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '134.00'
+        userMultiplied: false
+      - label: Included events
+        name: team_events
+        type: quota
+        metric: event
+        limit: 250000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Included queries
+        name: team_queries
+        type: quota
+        metric: query
+        limit: 5000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: S3 Streaming add-on
+        name: team_s3_streaming
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '100.00'
         userMultiplied: false
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Keen Event Collection API
-      - name: Keen Query API
-      - name: Keen Cached Queries API
-      - name: Keen Saved Queries API
-      - name: Keen Data Extraction API
-  - id: keen-enterprise
-    name: Enterprise
+      - name: Data Explorer
+      - name: Dashboard Creator
+      - name: Role-Based Access
+      - name: 2-year data retention
+      - name: 5 cached queries
+      - name: 5 cached datasets
+  - id: keen-business
+    name: Business
+    type: subscription
+    description: $699/mo ($629/mo annual). 3.5M events, 20K queries, 50 cached queries, 50 cached datasets,
+      includes S3 Streaming and Custom SSL with 48-hour response SLA.
+    entries:
+      - label: Monthly platform fee
+        name: business_monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '699.00'
+        userMultiplied: false
+      - label: Annual platform fee (per month equivalent)
+        name: business_annual
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '629.00'
+        userMultiplied: false
+      - label: Included events
+        name: business_events
+        type: quota
+        metric: event
+        limit: 3500000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Included queries
+        name: business_queries
+        type: quota
+        metric: query
+        limit: 20000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+    elements:
+      - name: S3 Streaming
+      - name: Custom SSL
+      - name: 48-hour response SLA
+      - name: 50 cached queries
+      - name: 50 cached datasets
+  - id: keen-custom
+    name: Custom
     type: enterprise
-    description: Custom-negotiated tier for Keen. Includes dedicated capacity, contractual SLAs, security
-      review, data residency options, and named technical account management.
+    description: Negotiated pricing with customizable usage limits, Solutions Architect, Customer Success
+      Manager, and integration services.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Custom contract
+        name: custom_contract
+        type: subscription
+        metric: contract
         limit: -1
         timeFrame: month
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains: []
+        geo: global
         unit: 1
         price: custom
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Keen Event Collection API
-      - name: Keen Query API
-      - name: Keen Cached Queries API
-      - name: Keen Saved Queries API
-      - name: Keen Data Extraction API
+      - name: Customizable usage limits
+      - name: Enterprise support
+      - name: Solutions Architect
+      - name: Customer Success Manager
+      - name: Integration services
+  - id: keen-overages
+    name: Overage Pricing
+    type: usage-based
+    description: Per-unit overage charges applied when subscription quotas are exceeded.
+    entries:
+      - label: Events overage
+        name: overage_events
+        type: metered
+        metric: event
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 5000
+        price: '1.00'
+        userMultiplied: false
+      - label: Queries overage
+        name: overage_queries
+        type: metered
+        metric: query
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 100
+        price: '5.00'
+        userMultiplied: false
+      - label: Cached query overage
+        name: overage_cached_query
+        type: metered
+        metric: cached_query
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '10.00'
+        userMultiplied: false
+      - label: Cached dataset overage
+        name: overage_cached_dataset
+        type: metered
+        metric: cached_dataset
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '20.00'
+        userMultiplied: false
+    elements:
+      - name: Charged on top of subscription quota
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
