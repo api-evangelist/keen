@@ -1,28 +1,25 @@
 naftiko: 1.0.0-alpha2
 info:
-  label: Keen Cached Queries API
-  description: The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are
-    automatically refreshed on a schedule. Cached queries improve performance for frequently accessed analytics by storing
-    pre-computed results, making them ideal for powering dashboards and embedded analytics experiences without incurring per-request
-    rate limits.
+  label: Keen Cached Queries API — Cached Queries
+  description: 'Keen Cached Queries API — Cached Queries. 5 operations. Lead operation: Keen List cached queries. Self-contained
+    Naftiko capability covering one Keen business surface.'
   tags:
   - Keen
-  - API
-  created: '2026-05-06'
-  modified: '2026-05-06'
+  - Cached Queries
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KEEN_API_KEY: KEEN_API_KEY
 capability:
   consumes:
   - type: http
-    namespace: keen
+    namespace: cached-queries-cached-queries
     baseUri: https://api.keen.io/3.0
-    description: Keen Cached Queries API HTTP API.
-    authentication:
-      type: apikey
-      in: header
-      name: Authorization
-      value: '{{KEEN_TOKEN}}'
+    description: Keen Cached Queries API — Cached Queries business capability. Self-contained, no shared references.
     resources:
-    - name: projects-projectid-queries-cached
+    - name: projects-projectId-queries-cached
       path: /projects/{projectId}/queries/cached
       operations:
       - name: listcachedqueries
@@ -33,7 +30,7 @@ capability:
         - name: result
           type: object
           value: $.
-    - name: projects-projectid-queries-cached-queryname
+    - name: projects-projectId-queries-cached-queryName
       path: /projects/{projectId}/queries/cached/{queryName}
       operations:
       - name: getcachedquery
@@ -52,6 +49,12 @@ capability:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
       - name: deletecachedquery
         method: DELETE
         description: Keen Delete a cached query
@@ -60,7 +63,7 @@ capability:
         - name: result
           type: object
           value: $.
-    - name: projects-projectid-queries-cached-queryname-resu
+    - name: projects-projectId-queries-cached-queryName-result
       path: /projects/{projectId}/queries/cached/{queryName}/result
       operations:
       - name: getcachedqueryresult
@@ -71,119 +74,123 @@ capability:
         - name: result
           type: object
           value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.KEEN_API_KEY}}'
+      placement: header
   exposes:
   - type: rest
+    namespace: cached-queries-cached-queries-rest
     port: 8080
-    namespace: keen-rest
-    description: REST adapter for Keen Cached Queries API.
+    description: REST adapter for Keen Cached Queries API — Cached Queries. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
     resources:
-    - path: /projects/{projectId}/queries/cached
-      name: listcachedqueries
+    - path: /v1/projects/{projectid}/queries/cached
+      name: projects-projectid-queries-cached
+      description: REST surface for projects-projectId-queries-cached.
       operations:
       - method: GET
         name: listcachedqueries
         description: Keen List cached queries
-        call: keen.listcachedqueries
+        call: cached-queries-cached-queries.listcachedqueries
         outputParameters:
         - type: object
           mapping: $.
-    - path: /projects/{projectId}/queries/cached/{queryName}
-      name: getcachedquery
+    - path: /v1/projects/{projectid}/queries/cached/{queryname}
+      name: projects-projectid-queries-cached-queryname
+      description: REST surface for projects-projectId-queries-cached-queryName.
       operations:
       - method: GET
         name: getcachedquery
         description: Keen Get a cached query
-        call: keen.getcachedquery
+        call: cached-queries-cached-queries.getcachedquery
         outputParameters:
         - type: object
           mapping: $.
-    - path: /projects/{projectId}/queries/cached/{queryName}
-      name: createorupdatecachedquery
-      operations:
       - method: PUT
         name: createorupdatecachedquery
         description: Keen Create or update a cached query
-        call: keen.createorupdatecachedquery
+        call: cached-queries-cached-queries.createorupdatecachedquery
+        with:
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /projects/{projectId}/queries/cached/{queryName}
-      name: deletecachedquery
-      operations:
       - method: DELETE
         name: deletecachedquery
         description: Keen Delete a cached query
-        call: keen.deletecachedquery
+        call: cached-queries-cached-queries.deletecachedquery
         outputParameters:
         - type: object
           mapping: $.
-    - path: /projects/{projectId}/queries/cached/{queryName}/result
-      name: getcachedqueryresult
+    - path: /v1/projects/{projectid}/queries/cached/{queryname}/result
+      name: projects-projectid-queries-cached-queryname-result
+      description: REST surface for projects-projectId-queries-cached-queryName-result.
       operations:
       - method: GET
         name: getcachedqueryresult
         description: Keen Get cached query result
-        call: keen.getcachedqueryresult
+        call: cached-queries-cached-queries.getcachedqueryresult
         outputParameters:
         - type: object
           mapping: $.
   - type: mcp
+    namespace: cached-queries-cached-queries-mcp
     port: 9090
-    namespace: keen-mcp
     transport: http
-    description: MCP adapter for Keen Cached Queries API for AI agent use.
+    description: MCP adapter for Keen Cached Queries API — Cached Queries. One tool per consumed operation, routed inline
+      through this capability's consumes block.
     tools:
-    - name: listcachedqueries
+    - name: keen-list-cached-queries
       description: Keen List cached queries
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: keen.listcachedqueries
+      call: cached-queries-cached-queries.listcachedqueries
       outputParameters:
       - type: object
         mapping: $.
-    - name: getcachedquery
+    - name: keen-get-cached-query
       description: Keen Get a cached query
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: keen.getcachedquery
+      call: cached-queries-cached-queries.getcachedquery
       outputParameters:
       - type: object
         mapping: $.
-    - name: createorupdatecachedquery
+    - name: keen-create-update-cached-query
       description: Keen Create or update a cached query
       hints:
         readOnly: false
         destructive: false
         idempotent: true
-      call: keen.createorupdatecachedquery
+      call: cached-queries-cached-queries.createorupdatecachedquery
+      with:
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: deletecachedquery
+    - name: keen-delete-cached-query
       description: Keen Delete a cached query
       hints:
         readOnly: false
         destructive: true
         idempotent: true
-      call: keen.deletecachedquery
+      call: cached-queries-cached-queries.deletecachedquery
       outputParameters:
       - type: object
         mapping: $.
-    - name: getcachedqueryresult
+    - name: keen-get-cached-query-result
       description: Keen Get cached query result
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: keen.getcachedqueryresult
+      call: cached-queries-cached-queries.getcachedqueryresult
       outputParameters:
       - type: object
         mapping: $.
-binds:
-- namespace: env
-  keys:
-    KEEN_TOKEN: KEEN_TOKEN

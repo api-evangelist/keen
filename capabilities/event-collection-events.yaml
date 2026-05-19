@@ -1,0 +1,124 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Keen Event Collection API — Events
+  description: 'Keen Event Collection API — Events. 2 operations. Lead operation: Keen Record multiple events. Self-contained
+    Naftiko capability covering one Keen business surface.'
+  tags:
+  - Keen
+  - Events
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KEEN_API_KEY: KEEN_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: event-collection-events
+    baseUri: https://api.keen.io/3.0
+    description: Keen Event Collection API — Events business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-events
+      path: /projects/{projectId}/events
+      operations:
+      - name: recordevents
+        method: POST
+        description: Keen Record multiple events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: projects-projectId-events-eventCollection
+      path: /projects/{projectId}/events/{eventCollection}
+      operations:
+      - name: recordevent
+        method: POST
+        description: Keen Record a single event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.KEEN_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: event-collection-events-rest
+    port: 8080
+    description: REST adapter for Keen Event Collection API — Events. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/events
+      name: projects-projectid-events
+      description: REST surface for projects-projectId-events.
+      operations:
+      - method: POST
+        name: recordevents
+        description: Keen Record multiple events
+        call: event-collection-events.recordevents
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/events/{eventcollection}
+      name: projects-projectid-events-eventcollection
+      description: REST surface for projects-projectId-events-eventCollection.
+      operations:
+      - method: POST
+        name: recordevent
+        description: Keen Record a single event
+        call: event-collection-events.recordevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: event-collection-events-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Keen Event Collection API — Events. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: keen-record-multiple-events
+      description: Keen Record multiple events
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: event-collection-events.recordevents
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: keen-record-single-event
+      description: Keen Record a single event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: event-collection-events.recordevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

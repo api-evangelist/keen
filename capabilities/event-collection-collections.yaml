@@ -1,0 +1,136 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Keen Event Collection API — Collections
+  description: 'Keen Event Collection API — Collections. 3 operations. Lead operation: Keen List event collections. Self-contained
+    Naftiko capability covering one Keen business surface.'
+  tags:
+  - Keen
+  - Collections
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KEEN_API_KEY: KEEN_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: event-collection-collections
+    baseUri: https://api.keen.io/3.0
+    description: Keen Event Collection API — Collections business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-events
+      path: /projects/{projectId}/events
+      operations:
+      - name: listcollections
+        method: GET
+        description: Keen List event collections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectId-events-eventCollection
+      path: /projects/{projectId}/events/{eventCollection}
+      operations:
+      - name: inspectcollection
+        method: GET
+        description: Keen Inspect collection schema
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectId-events-eventCollection-properties-propertyName
+      path: /projects/{projectId}/events/{eventCollection}/properties/{propertyName}
+      operations:
+      - name: inspectproperty
+        method: GET
+        description: Keen Inspect property
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.KEEN_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: event-collection-collections-rest
+    port: 8080
+    description: REST adapter for Keen Event Collection API — Collections. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/events
+      name: projects-projectid-events
+      description: REST surface for projects-projectId-events.
+      operations:
+      - method: GET
+        name: listcollections
+        description: Keen List event collections
+        call: event-collection-collections.listcollections
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/events/{eventcollection}
+      name: projects-projectid-events-eventcollection
+      description: REST surface for projects-projectId-events-eventCollection.
+      operations:
+      - method: GET
+        name: inspectcollection
+        description: Keen Inspect collection schema
+        call: event-collection-collections.inspectcollection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/events/{eventcollection}/properties/{propertyname}
+      name: projects-projectid-events-eventcollection-properties-propertyname
+      description: REST surface for projects-projectId-events-eventCollection-properties-propertyName.
+      operations:
+      - method: GET
+        name: inspectproperty
+        description: Keen Inspect property
+        call: event-collection-collections.inspectproperty
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: event-collection-collections-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Keen Event Collection API — Collections. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: keen-list-event-collections
+      description: Keen List event collections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: event-collection-collections.listcollections
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: keen-inspect-collection-schema
+      description: Keen Inspect collection schema
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: event-collection-collections.inspectcollection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: keen-inspect-property
+      description: Keen Inspect property
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: event-collection-collections.inspectproperty
+      outputParameters:
+      - type: object
+        mapping: $.

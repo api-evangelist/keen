@@ -1,0 +1,119 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Keen Data Extraction API — Extractions
+  description: 'Keen Data Extraction API — Extractions. 1 operations. Lead operation: Keen Extract events synchronously. Self-contained
+    Naftiko capability covering one Keen business surface.'
+  tags:
+  - Keen
+  - Extractions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KEEN_API_KEY: KEEN_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-extraction-extractions
+    baseUri: https://api.keen.io/3.0
+    description: Keen Data Extraction API — Extractions business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-queries-extraction
+      path: /projects/{projectId}/queries/extraction
+      operations:
+      - name: extractevents
+        method: GET
+        description: Keen Extract events synchronously
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: event_collection
+          in: query
+          type: string
+          description: Event collection to extract from.
+          required: true
+        - name: timeframe
+          in: query
+          type: string
+          description: Relative or absolute time frame for the extraction.
+          required: true
+        - name: filters
+          in: query
+          type: string
+          description: JSON-encoded array of filter objects.
+        - name: latest
+          in: query
+          type: integer
+          description: Limit the response to the latest N events.
+        - name: email_address
+          in: query
+          type: string
+          description: When provided, runs extraction asynchronously and emails a result link.
+        - name: property_names
+          in: query
+          type: string
+          description: Comma-separated list of property names to include.
+        - name: timezone
+          in: query
+          type: string
+          description: Time zone offset for relative timeframes.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.KEEN_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: data-extraction-extractions-rest
+    port: 8080
+    description: REST adapter for Keen Data Extraction API — Extractions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/queries/extraction
+      name: projects-projectid-queries-extraction
+      description: REST surface for projects-projectId-queries-extraction.
+      operations:
+      - method: GET
+        name: extractevents
+        description: Keen Extract events synchronously
+        call: data-extraction-extractions.extractevents
+        with:
+          event_collection: rest.event_collection
+          timeframe: rest.timeframe
+          filters: rest.filters
+          latest: rest.latest
+          email_address: rest.email_address
+          property_names: rest.property_names
+          timezone: rest.timezone
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: data-extraction-extractions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Keen Data Extraction API — Extractions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: keen-extract-events-synchronously
+      description: Keen Extract events synchronously
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-extraction-extractions.extractevents
+      with:
+        event_collection: tools.event_collection
+        timeframe: tools.timeframe
+        filters: tools.filters
+        latest: tools.latest
+        email_address: tools.email_address
+        property_names: tools.property_names
+        timezone: tools.timezone
+      outputParameters:
+      - type: object
+        mapping: $.
