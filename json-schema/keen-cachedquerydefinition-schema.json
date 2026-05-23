@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CachedQueryDefinition",
+  "title": "CachedQueryDefinition",
+  "type": "object",
+  "required": [
+    "refresh_rate",
+    "query"
+  ],
+  "properties": {
+    "refresh_rate": {
+      "type": "integer",
+      "description": "Refresh interval in seconds."
+    },
+    "query": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Underlying query definition (analysis type and parameters)."
+    }
+  }
+}

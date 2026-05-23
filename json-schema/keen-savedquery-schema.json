@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SavedQuery",
+  "title": "SavedQuery",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/SavedQueryDefinition"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "query_name": {
+          "type": "string"
+        },
+        "last_modified_date": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  ]
+}

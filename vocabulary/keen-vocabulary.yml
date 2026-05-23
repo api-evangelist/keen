@@ -1,0 +1,7 @@
+name: Keen Domain Vocabulary
+provider: Keen
+providerId: keen
+description: Tag-derived vocabulary for the Keen API surface; sourced from openapi/ tags.
+terms:
+- term: Queries
+  description: Run analytical queries against Keen event collections.

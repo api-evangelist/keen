@@ -1,0 +1,117 @@
+{
+  "provider": "Keen",
+  "providerId": "keen",
+  "kind": "json-structure",
+  "description": "Structural overview of the Keen API surface; extracted from openapi/.",
+  "schemaCount": 1,
+  "operationCount": 11,
+  "schemas": [
+    {
+      "name": "Error",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/queries/count",
+      "operationId": "queryCount",
+      "summary": "Keen Run count query",
+      "tags": [
+        "Queries"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/queries/count_unique",
+      "operationId": "queryCountUnique",
+      "summary": "Keen Run count_unique query",
+      "tags": [
+        "Queries"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/queries/sum",
+      "operationId": "querySum",
+      "summary": "Keen Run sum query",
+      "tags": [
+        "Queries"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/queries/average",
+      "operationId": "queryAverage",
+      "summary": "Keen Run average query",
+      "tags": [
+        "Queries"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/queries/minimum",
+      "operationId": "queryMinimum",
+      "summary": "Keen Run minimum query",
+      "tags": [
+        "Queries"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/queries/maximum",
+      "operationId": "queryMaximum",
+      "summary": "Keen Run maximum query",
+      "tags": [
+        "Queries"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/queries/median",
+      "operationId": "queryMedian",
+      "summary": "Keen Run median query",
+      "tags": [
+        "Queries"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/queries/percentile",
+      "operationId": "queryPercentile",
+      "summary": "Keen Run percentile query",
+      "tags": [
+        "Queries"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/projects/{projectId}/queries/select_unique",
+      "operationId": "querySelectUnique",
+      "summary": "Keen Run select_unique query",
+      "tags": [
+        "Queries"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/{projectId}/queries/funnel",
+      "operationId": "queryFunnel",
+      "summary": "Keen Run funnel query",
+      "tags": [
+        "Queries"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/projects/{projectId}/queries/multi_analysis",
+      "operationId": "queryMultiAnalysis",
+      "summary": "Keen Run multi_analysis query",
+      "tags": [
+        "Queries"
+      ]
+    }
+  ]
+}

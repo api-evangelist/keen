@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SavedQueryDefinition",
+  "title": "SavedQueryDefinition",
+  "type": "object",
+  "required": [
+    "query"
+  ],
+  "properties": {
+    "query": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Underlying query definition (analysis type and parameters)."
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional metadata for the saved query."
+    }
+  }
+}
