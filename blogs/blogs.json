@@ -2,12 +2,17 @@
   "repo": "keen",
   "feeds": [
     {
-      "source": "https://keen.io/blog",
+      "source": "https://keen.io/blog/feed/",
       "feed_url": "https://keen.io/blog/feed/",
-      "title": "Blog - Keen - Event Streaming Platform",
-      "saved": 7
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://keen.io/docs/getting-started",
+      "error": "HTTPError"
     }
   ],
   "post_count": 17,
-  "fetched": "2026-05-17T20:20:35Z"
+  "fetched": "2026-06-01T23:35:02Z"
 }
