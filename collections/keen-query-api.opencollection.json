@@ -1,0 +1,621 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keen Query API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Queries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Keen Run count query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/count",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "event_collection",
+                "value": "",
+                "type": "query",
+                "description": "Name of the event collection to query."
+              },
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "query",
+                "description": "Relative or absolute time frame for the query (e.g., this_7_days)."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded array of filter objects to narrow events."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Property name to group results by."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Time-based grouping interval (e.g., daily, hourly)."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone offset for relative timeframes."
+              }
+            ]
+          },
+          "docs": "Returns the number of events in a collection that match the supplied parameters."
+        },
+        {
+          "info": {
+            "name": "Keen Run count_unique query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/count_unique",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "event_collection",
+                "value": "",
+                "type": "query",
+                "description": "Name of the event collection to query."
+              },
+              {
+                "name": "target_property",
+                "value": "",
+                "type": "query",
+                "description": "Property used as the target of the aggregation."
+              },
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "query",
+                "description": "Relative or absolute time frame for the query (e.g., this_7_days)."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded array of filter objects to narrow events."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Property name to group results by."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Time-based grouping interval (e.g., daily, hourly)."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone offset for relative timeframes."
+              }
+            ]
+          },
+          "docs": "Returns the number of distinct values for the specified target property in matching events."
+        },
+        {
+          "info": {
+            "name": "Keen Run sum query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/sum",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "event_collection",
+                "value": "",
+                "type": "query",
+                "description": "Name of the event collection to query."
+              },
+              {
+                "name": "target_property",
+                "value": "",
+                "type": "query",
+                "description": "Property used as the target of the aggregation."
+              },
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "query",
+                "description": "Relative or absolute time frame for the query (e.g., this_7_days)."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded array of filter objects to narrow events."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Property name to group results by."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Time-based grouping interval (e.g., daily, hourly)."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone offset for relative timeframes."
+              }
+            ]
+          },
+          "docs": "Returns the sum of numeric values for the target property across matching events."
+        },
+        {
+          "info": {
+            "name": "Keen Run average query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/average",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "event_collection",
+                "value": "",
+                "type": "query",
+                "description": "Name of the event collection to query."
+              },
+              {
+                "name": "target_property",
+                "value": "",
+                "type": "query",
+                "description": "Property used as the target of the aggregation."
+              },
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "query",
+                "description": "Relative or absolute time frame for the query (e.g., this_7_days)."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded array of filter objects to narrow events."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Property name to group results by."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Time-based grouping interval (e.g., daily, hourly)."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone offset for relative timeframes."
+              }
+            ]
+          },
+          "docs": "Returns the arithmetic mean of numeric values for the target property across matching events."
+        },
+        {
+          "info": {
+            "name": "Keen Run minimum query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/minimum",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "event_collection",
+                "value": "",
+                "type": "query",
+                "description": "Name of the event collection to query."
+              },
+              {
+                "name": "target_property",
+                "value": "",
+                "type": "query",
+                "description": "Property used as the target of the aggregation."
+              },
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "query",
+                "description": "Relative or absolute time frame for the query (e.g., this_7_days)."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded array of filter objects to narrow events."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Property name to group results by."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Time-based grouping interval (e.g., daily, hourly)."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone offset for relative timeframes."
+              }
+            ]
+          },
+          "docs": "Returns the minimum numeric value of the target property across matching events."
+        },
+        {
+          "info": {
+            "name": "Keen Run maximum query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/maximum",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "event_collection",
+                "value": "",
+                "type": "query",
+                "description": "Name of the event collection to query."
+              },
+              {
+                "name": "target_property",
+                "value": "",
+                "type": "query",
+                "description": "Property used as the target of the aggregation."
+              },
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "query",
+                "description": "Relative or absolute time frame for the query (e.g., this_7_days)."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded array of filter objects to narrow events."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Property name to group results by."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Time-based grouping interval (e.g., daily, hourly)."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone offset for relative timeframes."
+              }
+            ]
+          },
+          "docs": "Returns the maximum numeric value of the target property across matching events."
+        },
+        {
+          "info": {
+            "name": "Keen Run median query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/median",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "event_collection",
+                "value": "",
+                "type": "query",
+                "description": "Name of the event collection to query."
+              },
+              {
+                "name": "target_property",
+                "value": "",
+                "type": "query",
+                "description": "Property used as the target of the aggregation."
+              },
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "query",
+                "description": "Relative or absolute time frame for the query (e.g., this_7_days)."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded array of filter objects to narrow events."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Property name to group results by."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Time-based grouping interval (e.g., daily, hourly)."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone offset for relative timeframes."
+              }
+            ]
+          },
+          "docs": "Returns the median numeric value of the target property across matching events."
+        },
+        {
+          "info": {
+            "name": "Keen Run percentile query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/percentile",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "event_collection",
+                "value": "",
+                "type": "query",
+                "description": "Name of the event collection to query."
+              },
+              {
+                "name": "target_property",
+                "value": "",
+                "type": "query",
+                "description": "Property used as the target of the aggregation."
+              },
+              {
+                "name": "percentile",
+                "value": "",
+                "type": "query",
+                "description": "Percentile to compute (e.g., 95 for the 95th percentile)."
+              },
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "query",
+                "description": "Relative or absolute time frame for the query (e.g., this_7_days)."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded array of filter objects to narrow events."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Property name to group results by."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Time-based grouping interval (e.g., daily, hourly)."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone offset for relative timeframes."
+              }
+            ]
+          },
+          "docs": "Returns the value at the specified percentile for the target property across matching events."
+        },
+        {
+          "info": {
+            "name": "Keen Run select_unique query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/select_unique",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "event_collection",
+                "value": "",
+                "type": "query",
+                "description": "Name of the event collection to query."
+              },
+              {
+                "name": "target_property",
+                "value": "",
+                "type": "query",
+                "description": "Property used as the target of the aggregation."
+              },
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "query",
+                "description": "Relative or absolute time frame for the query (e.g., this_7_days)."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded array of filter objects to narrow events."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Property name to group results by."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Time-based grouping interval (e.g., daily, hourly)."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone offset for relative timeframes."
+              }
+            ]
+          },
+          "docs": "Returns the distinct values of the target property across matching events."
+        },
+        {
+          "info": {
+            "name": "Keen Run funnel query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/funnel",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Analyzes user progression through an ordered sequence of steps, each defined as a query against an event collection."
+        },
+        {
+          "info": {
+            "name": "Keen Run multi_analysis query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/multi_analysis",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Runs multiple analyses on the same event collection in a single request, returning all results in a combined response."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

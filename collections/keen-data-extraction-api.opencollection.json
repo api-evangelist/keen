@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keen Data Extraction API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Extractions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Keen Extract events synchronously",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/extraction",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "event_collection",
+                "value": "",
+                "type": "query",
+                "description": "Event collection to extract from."
+              },
+              {
+                "name": "timeframe",
+                "value": "",
+                "type": "query",
+                "description": "Relative or absolute time frame for the extraction."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded array of filter objects."
+              },
+              {
+                "name": "latest",
+                "value": "",
+                "type": "query",
+                "description": "Limit the response to the latest N events."
+              },
+              {
+                "name": "email_address",
+                "value": "",
+                "type": "query",
+                "description": "When provided, runs extraction asynchronously and emails a result link."
+              },
+              {
+                "name": "property_names",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of property names to include."
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone offset for relative timeframes."
+              }
+            ]
+          },
+          "docs": "Returns up to 100,000 raw events from the specified event collection that match the supplied filters and time frame. For larger result sets, use the asynchronous extraction by supplying an email_address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keen Cached Queries API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cached Queries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Keen List cached queries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/cached",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              }
+            ]
+          },
+          "docs": "Returns the list of cached queries defined for the project. Requires a Master Key."
+        },
+        {
+          "info": {
+            "name": "Keen Get a cached query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/cached/:queryName",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "queryName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the cached query."
+              }
+            ]
+          },
+          "docs": "Returns the definition of a single cached query."
+        },
+        {
+          "info": {
+            "name": "Keen Create or update a cached query",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/cached/:queryName",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "queryName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the cached query."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new cached query or updates an existing one with the given name. Requires a Master Key."
+        },
+        {
+          "info": {
+            "name": "Keen Delete a cached query",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/cached/:queryName",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "queryName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the cached query."
+              }
+            ]
+          },
+          "docs": "Removes a cached query from the project. Requires a Master Key."
+        },
+        {
+          "info": {
+            "name": "Keen Get cached query result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.keen.io/3.0/projects/:projectId/queries/cached/:queryName/result",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "queryName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the cached query."
+              }
+            ]
+          },
+          "docs": "Returns the most recent cached result for the named query. Cached results refresh on the configured schedule."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
