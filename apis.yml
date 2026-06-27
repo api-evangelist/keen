@@ -121,7 +121,7 @@ common:
     url: https://github.com/keen
   - type: Login
     url: https://keen.io/login
-  - type: SignUp
+  - type: Signup
     url: https://keen.io/signup
   - type: Support
     url: https://keen.io/support
