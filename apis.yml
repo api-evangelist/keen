@@ -103,6 +103,10 @@ apis:
       - type: OpenAPI
         url: openapi/keen-data-extraction-api-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/keen-domain-security.yml
+  - type: Authentication
+    url: authentication/keen-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/keen-io
   - type: Website
