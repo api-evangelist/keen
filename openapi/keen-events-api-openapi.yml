@@ -1,0 +1,132 @@
+openapi: 3.1.0
+info:
+  title: Keen Cached Queries Events API
+  description: The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are automatically refreshed on a schedule. Cached queries improve performance for frequently accessed analytics by storing pre-computed results, making them ideal for powering dashboards and embedded analytics experiences without incurring per-request rate limits.
+  version: '3.0'
+  contact:
+    name: Keen Support
+    url: https://keen.io/support
+  license:
+    name: Proprietary
+    url: https://keen.io/terms-of-service
+servers:
+- url: https://api.keen.io/3.0
+  description: Keen production API
+security:
+- masterKey: []
+- readKey: []
+tags:
+- name: Events
+  description: Record and inspect events stored in Keen event collections.
+paths:
+  /projects/{projectId}/events/{eventCollection}:
+    parameters:
+    - $ref: '#/components/parameters/projectId'
+    - $ref: '#/components/parameters/eventCollection'
+    post:
+      operationId: recordEvent
+      summary: Keen Record a single event
+      description: Records a single event in the specified event collection for the given Keen project. The request body is an arbitrary JSON object whose properties become event properties. Requires a Write Key with permission to record events into the project.
+      tags:
+      - Events
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Arbitrary event payload with custom properties.
+      responses:
+        '201':
+          description: Event recorded successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  created:
+                    type: boolean
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/events:
+    parameters:
+    - $ref: '#/components/parameters/projectId'
+    post:
+      operationId: recordEvents
+      summary: Keen Record multiple events
+      description: Records multiple events across one or more event collections in a single request. The body is a JSON object whose keys are event collection names and whose values are arrays of event objects. Requires a Write Key with permission to record events.
+      tags:
+      - Events
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Events recorded with per-collection results.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      success:
+                        type: boolean
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Keen project identifier.
+    eventCollection:
+      name: eventCollection
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Name of the event collection.
+  securitySchemes:
+    masterKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Keen Master Key for management endpoints.
+    readKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Keen Read Key for retrieving cached results.
+externalDocs:
+  description: Keen Cached Queries API Documentation
+  url: https://keen.io/docs/api/#cached-queries
