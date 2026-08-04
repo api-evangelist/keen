@@ -1,0 +1,945 @@
+{
+  "info": {
+    "_postman_id": "e1150a8e-2212-479f-9af3-39a19c28b14d",
+    "name": "Keen Cached Queries API",
+    "description": "The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are automatically refreshed on a schedule. Cached queries improve performance for frequently accessed analytics by storing pre-computed results, making them ideal for powering dashboards and embedded analytics experiences without incurring per-request rate limits.\n\nContact Support:\n Name: Keen Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:59:48.000Z",
+    "updatedAt": "2026-07-28T01:59:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e1150a8e-2212-479f-9af3-39a19c28b14d"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "queries",
+              "item": [
+                {
+                  "name": "cached",
+                  "item": [
+                    {
+                      "name": "{queryName}",
+                      "item": [
+                        {
+                          "name": "result",
+                          "item": [
+                            {
+                              "name": "Keen Get cached query result",
+                              "id": "9c2c54a0-0cb7-4358-8f82-108f5590e023",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName/result",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "cached",
+                                    ":queryName",
+                                    "result"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "9eca7d48-1dfc-45f7-bd1a-928a4962926d",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) Keen project identifier."
+                                    },
+                                    {
+                                      "id": "a7b83af4-ef53-4f9d-bbe1-8b35cc8c5400",
+                                      "key": "queryName",
+                                      "value": "<string>",
+                                      "description": "(Required) Name of the cached query."
+                                    }
+                                  ]
+                                },
+                                "description": "Returns the most recent cached result for the named query. Cached results refresh on the configured schedule."
+                              },
+                              "response": [
+                                {
+                                  "id": "2786e440-24ed-45c1-a057-98b9cd9f798a",
+                                  "name": "Cached query result.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName/result",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "queries",
+                                        "cached",
+                                        ":queryName",
+                                        "result"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "queryName"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"result\": {}\n}",
+                                  "createdAt": "2026-07-28T01:59:48.000Z",
+                                  "updatedAt": "2026-07-28T01:59:48.000Z",
+                                  "uid": "35240-2786e440-24ed-45c1-a057-98b9cd9f798a"
+                                },
+                                {
+                                  "id": "fbcdba0d-1a9b-419a-a61b-040771c06bfe",
+                                  "name": "Missing or invalid API key.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName/result",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "queries",
+                                        "cached",
+                                        ":queryName",
+                                        "result"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "queryName"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:59:48.000Z",
+                                  "updatedAt": "2026-07-28T01:59:48.000Z",
+                                  "uid": "35240-fbcdba0d-1a9b-419a-a61b-040771c06bfe"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:59:48.000Z",
+                              "updatedAt": "2026-07-28T01:59:48.000Z",
+                              "uid": "35240-9c2c54a0-0cb7-4358-8f82-108f5590e023"
+                            }
+                          ],
+                          "id": "e6022d29-4fa7-4ffa-b3d9-694551c92253",
+                          "createdAt": "2026-07-28T01:59:48.000Z",
+                          "updatedAt": "2026-07-28T01:59:48.000Z",
+                          "uid": "35240-e6022d29-4fa7-4ffa-b3d9-694551c92253"
+                        },
+                        {
+                          "name": "Keen Get a cached query",
+                          "id": "ad133914-eada-4bff-99cb-fdce298cd688",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "cached",
+                                ":queryName"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fbbc97c6-fa35-4aca-94f4-d5648a10a83e",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) Keen project identifier."
+                                },
+                                {
+                                  "id": "3b3969f3-50c4-4e27-930a-2304841d8830",
+                                  "key": "queryName",
+                                  "value": "<string>",
+                                  "description": "(Required) Name of the cached query."
+                                }
+                              ]
+                            },
+                            "description": "Returns the definition of a single cached query."
+                          },
+                          "response": [
+                            {
+                              "id": "4626dba9-c312-421f-b44e-f2ab2571aecc",
+                              "name": "Cached query definition.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "cached",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"refresh_rate\": \"<integer>\",\n  \"query\": {\n    \"aute_b\": true,\n    \"officia_fb\": false\n  },\n  \"query_name\": \"<string>\",\n  \"last_modified_date\": \"<dateTime>\",\n  \"run_information\": {\n    \"Lorem_4c9\": true,\n    \"sunt_8_\": \"in eu\",\n    \"in7\": false\n  }\n}",
+                              "createdAt": "2026-07-28T01:59:48.000Z",
+                              "updatedAt": "2026-07-28T01:59:48.000Z",
+                              "uid": "35240-4626dba9-c312-421f-b44e-f2ab2571aecc"
+                            },
+                            {
+                              "id": "279ef2c9-e4ba-4510-aaa0-df4a7108a95d",
+                              "name": "Missing or invalid API key.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "cached",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:59:48.000Z",
+                              "updatedAt": "2026-07-28T01:59:48.000Z",
+                              "uid": "35240-279ef2c9-e4ba-4510-aaa0-df4a7108a95d"
+                            },
+                            {
+                              "id": "7f0762e3-026f-4bea-8d0e-c42778e44f4f",
+                              "name": "Cached query not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "cached",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:59:48.000Z",
+                              "updatedAt": "2026-07-28T01:59:48.000Z",
+                              "uid": "35240-7f0762e3-026f-4bea-8d0e-c42778e44f4f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:59:48.000Z",
+                          "updatedAt": "2026-07-28T01:59:48.000Z",
+                          "uid": "35240-ad133914-eada-4bff-99cb-fdce298cd688"
+                        },
+                        {
+                          "name": "Keen Create or update a cached query",
+                          "id": "6b89ade1-6a03-435a-8e18-4af79373f92d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"refresh_rate\": \"<integer>\",\n  \"query\": {\n    \"consectetur38\": 44784089\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "cached",
+                                ":queryName"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "3ce43111-6672-4c23-8eac-1f2bbae10eeb",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) Keen project identifier."
+                                },
+                                {
+                                  "id": "9c626a8b-63c1-4796-9347-a34423193bb0",
+                                  "key": "queryName",
+                                  "value": "<string>",
+                                  "description": "(Required) Name of the cached query."
+                                }
+                              ]
+                            },
+                            "description": "Creates a new cached query or updates an existing one with the given name. Requires a Master Key."
+                          },
+                          "response": [
+                            {
+                              "id": "14e42e17-e331-4bcd-89d2-648462f8db4d",
+                              "name": "Cached query created or updated.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"refresh_rate\": \"<integer>\",\n  \"query\": {\n    \"consectetur38\": 44784089\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "cached",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"refresh_rate\": \"<integer>\",\n  \"query\": {\n    \"aute_b\": true,\n    \"officia_fb\": false\n  },\n  \"query_name\": \"<string>\",\n  \"last_modified_date\": \"<dateTime>\",\n  \"run_information\": {\n    \"Lorem_4c9\": true,\n    \"sunt_8_\": \"in eu\",\n    \"in7\": false\n  }\n}",
+                              "createdAt": "2026-07-28T01:59:48.000Z",
+                              "updatedAt": "2026-07-28T01:59:48.000Z",
+                              "uid": "35240-14e42e17-e331-4bcd-89d2-648462f8db4d"
+                            },
+                            {
+                              "id": "8c8db698-da67-4022-9f04-e6a70c56fffe",
+                              "name": "Missing or invalid API key.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"refresh_rate\": \"<integer>\",\n  \"query\": {\n    \"consectetur38\": 44784089\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "cached",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:59:48.000Z",
+                              "updatedAt": "2026-07-28T01:59:48.000Z",
+                              "uid": "35240-8c8db698-da67-4022-9f04-e6a70c56fffe"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:59:48.000Z",
+                          "updatedAt": "2026-07-28T01:59:48.000Z",
+                          "uid": "35240-6b89ade1-6a03-435a-8e18-4af79373f92d"
+                        },
+                        {
+                          "name": "Keen Delete a cached query",
+                          "id": "30163f5f-403e-46eb-9dbc-86abe3ed98fe",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "cached",
+                                ":queryName"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "5901114d-cd8a-49c5-bdda-99f9ec5d62fa",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) Keen project identifier."
+                                },
+                                {
+                                  "id": "bce131aa-a33d-4515-872d-2bef8e114c0e",
+                                  "key": "queryName",
+                                  "value": "<string>",
+                                  "description": "(Required) Name of the cached query."
+                                }
+                              ]
+                            },
+                            "description": "Removes a cached query from the project. Requires a Master Key."
+                          },
+                          "response": [
+                            {
+                              "id": "f09eedfa-7fc2-40a4-8cdc-414ece010768",
+                              "name": "Cached query deleted.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "cached",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:59:48.000Z",
+                              "updatedAt": "2026-07-28T01:59:48.000Z",
+                              "uid": "35240-f09eedfa-7fc2-40a4-8cdc-414ece010768"
+                            },
+                            {
+                              "id": "16ac1bc9-4bd2-4e34-8ad8-71053461be72",
+                              "name": "Missing or invalid API key.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/cached/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "cached",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:59:48.000Z",
+                              "updatedAt": "2026-07-28T01:59:48.000Z",
+                              "uid": "35240-16ac1bc9-4bd2-4e34-8ad8-71053461be72"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:59:48.000Z",
+                          "updatedAt": "2026-07-28T01:59:48.000Z",
+                          "uid": "35240-30163f5f-403e-46eb-9dbc-86abe3ed98fe"
+                        }
+                      ],
+                      "id": "4a368ec5-1b5f-4fbf-81f4-2446bca69401",
+                      "createdAt": "2026-07-28T01:59:48.000Z",
+                      "updatedAt": "2026-07-28T01:59:48.000Z",
+                      "uid": "35240-4a368ec5-1b5f-4fbf-81f4-2446bca69401"
+                    },
+                    {
+                      "name": "Keen List cached queries",
+                      "id": "6028a2a9-ce33-4304-a3dd-61d5b5723d4b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/cached",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "cached"
+                          ],
+                          "variable": [
+                            {
+                              "id": "15f10501-9724-4747-b3e2-58f2e85c16c7",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns the list of cached queries defined for the project. Requires a Master Key."
+                      },
+                      "response": [
+                        {
+                          "id": "46e05270-1b74-42fd-86b5-c2164e9e0662",
+                          "name": "List of cached query metadata.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/cached",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "cached"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"refresh_rate\": \"<integer>\",\n    \"query\": {\n      \"eu_4\": -8148295\n    },\n    \"query_name\": \"<string>\",\n    \"last_modified_date\": \"<dateTime>\",\n    \"run_information\": {\n      \"Ut77\": false,\n      \"ad58a\": true\n    }\n  },\n  {\n    \"refresh_rate\": \"<integer>\",\n    \"query\": {\n      \"Duis_5\": false,\n      \"voluptate_b4\": 90116944\n    },\n    \"query_name\": \"<string>\",\n    \"last_modified_date\": \"<dateTime>\",\n    \"run_information\": {\n      \"deserunt68\": -49333193\n    }\n  }\n]",
+                          "createdAt": "2026-07-28T01:59:48.000Z",
+                          "updatedAt": "2026-07-28T01:59:48.000Z",
+                          "uid": "35240-46e05270-1b74-42fd-86b5-c2164e9e0662"
+                        },
+                        {
+                          "id": "9811cf4e-7281-40c1-a0be-e170c32a8819",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/cached",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "cached"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:59:48.000Z",
+                          "updatedAt": "2026-07-28T01:59:48.000Z",
+                          "uid": "35240-9811cf4e-7281-40c1-a0be-e170c32a8819"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:59:48.000Z",
+                      "updatedAt": "2026-07-28T01:59:48.000Z",
+                      "uid": "35240-6028a2a9-ce33-4304-a3dd-61d5b5723d4b"
+                    }
+                  ],
+                  "id": "353a3233-0f61-451e-b38a-e5305c3c7306",
+                  "createdAt": "2026-07-28T01:59:48.000Z",
+                  "updatedAt": "2026-07-28T01:59:48.000Z",
+                  "uid": "35240-353a3233-0f61-451e-b38a-e5305c3c7306"
+                }
+              ],
+              "id": "e6061cf4-98d8-438e-bdd4-85050ec2efa1",
+              "createdAt": "2026-07-28T01:59:48.000Z",
+              "updatedAt": "2026-07-28T01:59:48.000Z",
+              "uid": "35240-e6061cf4-98d8-438e-bdd4-85050ec2efa1"
+            }
+          ],
+          "id": "4943dc76-c169-4753-b9e3-929dc027bae0",
+          "createdAt": "2026-07-28T01:59:48.000Z",
+          "updatedAt": "2026-07-28T01:59:48.000Z",
+          "uid": "35240-4943dc76-c169-4753-b9e3-929dc027bae0"
+        }
+      ],
+      "id": "221a85b9-3a43-4c6a-9591-f3f4a6cbf0b5",
+      "createdAt": "2026-07-28T01:59:48.000Z",
+      "updatedAt": "2026-07-28T01:59:48.000Z",
+      "uid": "35240-221a85b9-3a43-4c6a-9591-f3f4a6cbf0b5"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.keen.io/3.0"
+    }
+  ]
+}

@@ -1,0 +1,2811 @@
+{
+  "info": {
+    "_postman_id": "8972496d-9084-4852-8be2-b27d2fa3cb67",
+    "name": "Keen Cached Queries API",
+    "description": "The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are automatically refreshed on a schedule. Cached queries improve performance for frequently accessed analytics by storing pre-computed results, making them ideal for powering dashboards and embedded analytics experiences without incurring per-request rate limits.\n\nContact Support:\n Name: Keen Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:00:14.000Z",
+    "updatedAt": "2026-07-28T02:00:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8972496d-9084-4852-8be2-b27d2fa3cb67"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "queries",
+              "item": [
+                {
+                  "name": "count",
+                  "item": [
+                    {
+                      "name": "Keen Run count query",
+                      "id": "e8242747-d584-4b3f-9609-9b6131516834",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/count?event_collection=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "count"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Name of the event collection to query.",
+                              "key": "event_collection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                              "key": "timeframe",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "JSON-encoded array of filter objects to narrow events.",
+                              "key": "filters",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Property name to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time-based grouping interval (e.g., daily, hourly).",
+                              "key": "interval",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time zone offset for relative timeframes.",
+                              "key": "timezone",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "6f116738-0262-49c7-b0d0-0ed18e40df66",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns the number of events in a collection that match the supplied parameters."
+                      },
+                      "response": [
+                        {
+                          "id": "3cd46e0d-7c69-4af8-bf1b-11ee2ac6cb33",
+                          "name": "Query result returned successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/count?event_collection=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "count"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"description\": \"Result value or grouped/intervalled list of results.\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-3cd46e0d-7c69-4af8-bf1b-11ee2ac6cb33"
+                        },
+                        {
+                          "id": "40661a84-f300-4e83-9776-c0f87fe9ff3c",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/count?event_collection=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "count"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-40661a84-f300-4e83-9776-c0f87fe9ff3c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:15.000Z",
+                      "updatedAt": "2026-07-28T02:00:15.000Z",
+                      "uid": "35240-e8242747-d584-4b3f-9609-9b6131516834"
+                    }
+                  ],
+                  "id": "8d34e8ce-ee1a-4d59-9da1-41c57b4b5ae9",
+                  "createdAt": "2026-07-28T02:00:15.000Z",
+                  "updatedAt": "2026-07-28T02:00:15.000Z",
+                  "uid": "35240-8d34e8ce-ee1a-4d59-9da1-41c57b4b5ae9"
+                },
+                {
+                  "name": "count_unique",
+                  "item": [
+                    {
+                      "name": "Keen Run count_unique query",
+                      "id": "c6178e64-b8e4-4814-8a57-024047c752e7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/count_unique?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "count_unique"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Name of the event collection to query.",
+                              "key": "event_collection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Property used as the target of the aggregation.",
+                              "key": "target_property",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                              "key": "timeframe",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "JSON-encoded array of filter objects to narrow events.",
+                              "key": "filters",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Property name to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time-based grouping interval (e.g., daily, hourly).",
+                              "key": "interval",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time zone offset for relative timeframes.",
+                              "key": "timezone",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "0fd96556-ad9d-44da-aa7a-dbed5e335574",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns the number of distinct values for the specified target property in matching events."
+                      },
+                      "response": [
+                        {
+                          "id": "612546d9-328d-4718-b117-2c2291b1ce90",
+                          "name": "Query result returned successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/count_unique?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "count_unique"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"description\": \"Result value or grouped/intervalled list of results.\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-612546d9-328d-4718-b117-2c2291b1ce90"
+                        },
+                        {
+                          "id": "7e4e01cd-cdb7-49e2-b88f-963c5e45aedf",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/count_unique?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "count_unique"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-7e4e01cd-cdb7-49e2-b88f-963c5e45aedf"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:15.000Z",
+                      "updatedAt": "2026-07-28T02:00:15.000Z",
+                      "uid": "35240-c6178e64-b8e4-4814-8a57-024047c752e7"
+                    }
+                  ],
+                  "id": "4b878f12-cc27-427a-9efb-8bdae46467c6",
+                  "createdAt": "2026-07-28T02:00:15.000Z",
+                  "updatedAt": "2026-07-28T02:00:15.000Z",
+                  "uid": "35240-4b878f12-cc27-427a-9efb-8bdae46467c6"
+                },
+                {
+                  "name": "sum",
+                  "item": [
+                    {
+                      "name": "Keen Run sum query",
+                      "id": "d152656b-8d89-4c35-8650-8bb2605b817d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/sum?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "sum"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Name of the event collection to query.",
+                              "key": "event_collection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Property used as the target of the aggregation.",
+                              "key": "target_property",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                              "key": "timeframe",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "JSON-encoded array of filter objects to narrow events.",
+                              "key": "filters",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Property name to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time-based grouping interval (e.g., daily, hourly).",
+                              "key": "interval",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time zone offset for relative timeframes.",
+                              "key": "timezone",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "023d4439-e929-4ff7-b052-b9fd69a5df62",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns the sum of numeric values for the target property across matching events."
+                      },
+                      "response": [
+                        {
+                          "id": "dd2c110b-3856-45da-a4c2-d82c1fa3ae8e",
+                          "name": "Query result returned successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/sum?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "sum"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"description\": \"Result value or grouped/intervalled list of results.\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-dd2c110b-3856-45da-a4c2-d82c1fa3ae8e"
+                        },
+                        {
+                          "id": "03d0473d-8880-4631-a0c2-4097ca87ee2e",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/sum?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "sum"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-03d0473d-8880-4631-a0c2-4097ca87ee2e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:15.000Z",
+                      "updatedAt": "2026-07-28T02:00:15.000Z",
+                      "uid": "35240-d152656b-8d89-4c35-8650-8bb2605b817d"
+                    }
+                  ],
+                  "id": "e48e5aa3-2cc3-4049-a344-eeadaad34dbe",
+                  "createdAt": "2026-07-28T02:00:15.000Z",
+                  "updatedAt": "2026-07-28T02:00:15.000Z",
+                  "uid": "35240-e48e5aa3-2cc3-4049-a344-eeadaad34dbe"
+                },
+                {
+                  "name": "average",
+                  "item": [
+                    {
+                      "name": "Keen Run average query",
+                      "id": "551b2b2d-86e7-4388-9183-90ca38c318f5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/average?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "average"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Name of the event collection to query.",
+                              "key": "event_collection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Property used as the target of the aggregation.",
+                              "key": "target_property",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                              "key": "timeframe",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "JSON-encoded array of filter objects to narrow events.",
+                              "key": "filters",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Property name to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time-based grouping interval (e.g., daily, hourly).",
+                              "key": "interval",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time zone offset for relative timeframes.",
+                              "key": "timezone",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "fd055728-3e32-424f-a185-7d6578ff5a7a",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns the arithmetic mean of numeric values for the target property across matching events."
+                      },
+                      "response": [
+                        {
+                          "id": "8d5b37c4-35e6-4f42-ab25-e2fc93dcfafb",
+                          "name": "Query result returned successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/average?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "average"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"description\": \"Result value or grouped/intervalled list of results.\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-8d5b37c4-35e6-4f42-ab25-e2fc93dcfafb"
+                        },
+                        {
+                          "id": "4e70b820-4c9f-4087-9453-524dc9b55475",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/average?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "average"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-4e70b820-4c9f-4087-9453-524dc9b55475"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:15.000Z",
+                      "updatedAt": "2026-07-28T02:00:15.000Z",
+                      "uid": "35240-551b2b2d-86e7-4388-9183-90ca38c318f5"
+                    }
+                  ],
+                  "id": "44035ba5-bc76-428c-b44a-8bd8bd284f18",
+                  "createdAt": "2026-07-28T02:00:15.000Z",
+                  "updatedAt": "2026-07-28T02:00:15.000Z",
+                  "uid": "35240-44035ba5-bc76-428c-b44a-8bd8bd284f18"
+                },
+                {
+                  "name": "minimum",
+                  "item": [
+                    {
+                      "name": "Keen Run minimum query",
+                      "id": "79c766f6-a3ad-468a-88ca-cb0168afb3db",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/minimum?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "minimum"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Name of the event collection to query.",
+                              "key": "event_collection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Property used as the target of the aggregation.",
+                              "key": "target_property",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                              "key": "timeframe",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "JSON-encoded array of filter objects to narrow events.",
+                              "key": "filters",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Property name to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time-based grouping interval (e.g., daily, hourly).",
+                              "key": "interval",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time zone offset for relative timeframes.",
+                              "key": "timezone",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "46120b07-6d4d-4b12-8ebc-7cbe4cf6a840",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns the minimum numeric value of the target property across matching events."
+                      },
+                      "response": [
+                        {
+                          "id": "0fcbf843-3963-4117-94a8-dd2de6610cd9",
+                          "name": "Query result returned successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/minimum?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "minimum"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"description\": \"Result value or grouped/intervalled list of results.\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-0fcbf843-3963-4117-94a8-dd2de6610cd9"
+                        },
+                        {
+                          "id": "b70dd202-afb5-4713-8107-dbf5751d1bdd",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/minimum?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "minimum"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-b70dd202-afb5-4713-8107-dbf5751d1bdd"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:15.000Z",
+                      "updatedAt": "2026-07-28T02:00:15.000Z",
+                      "uid": "35240-79c766f6-a3ad-468a-88ca-cb0168afb3db"
+                    }
+                  ],
+                  "id": "25c2d848-5251-41e2-9db9-6dba518aeac9",
+                  "createdAt": "2026-07-28T02:00:15.000Z",
+                  "updatedAt": "2026-07-28T02:00:15.000Z",
+                  "uid": "35240-25c2d848-5251-41e2-9db9-6dba518aeac9"
+                },
+                {
+                  "name": "maximum",
+                  "item": [
+                    {
+                      "name": "Keen Run maximum query",
+                      "id": "510cbcdc-a7f2-4a8b-9410-89336eaa448f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/maximum?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "maximum"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Name of the event collection to query.",
+                              "key": "event_collection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Property used as the target of the aggregation.",
+                              "key": "target_property",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                              "key": "timeframe",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "JSON-encoded array of filter objects to narrow events.",
+                              "key": "filters",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Property name to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time-based grouping interval (e.g., daily, hourly).",
+                              "key": "interval",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time zone offset for relative timeframes.",
+                              "key": "timezone",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "b7d18746-4820-4f25-9544-4e10d5182781",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns the maximum numeric value of the target property across matching events."
+                      },
+                      "response": [
+                        {
+                          "id": "79b1112b-1287-4940-913d-08e8ab6353b5",
+                          "name": "Query result returned successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/maximum?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "maximum"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"description\": \"Result value or grouped/intervalled list of results.\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-79b1112b-1287-4940-913d-08e8ab6353b5"
+                        },
+                        {
+                          "id": "565b857c-0c03-4e02-ada7-edcc04ae18f0",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/maximum?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "maximum"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-565b857c-0c03-4e02-ada7-edcc04ae18f0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:15.000Z",
+                      "updatedAt": "2026-07-28T02:00:15.000Z",
+                      "uid": "35240-510cbcdc-a7f2-4a8b-9410-89336eaa448f"
+                    }
+                  ],
+                  "id": "503aa860-2a79-41e9-b392-7c3a98d3cf45",
+                  "createdAt": "2026-07-28T02:00:15.000Z",
+                  "updatedAt": "2026-07-28T02:00:15.000Z",
+                  "uid": "35240-503aa860-2a79-41e9-b392-7c3a98d3cf45"
+                },
+                {
+                  "name": "median",
+                  "item": [
+                    {
+                      "name": "Keen Run median query",
+                      "id": "336eeaba-f6c1-47a1-9f6a-6ac4bd69a1d2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/median?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "median"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Name of the event collection to query.",
+                              "key": "event_collection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Property used as the target of the aggregation.",
+                              "key": "target_property",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                              "key": "timeframe",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "JSON-encoded array of filter objects to narrow events.",
+                              "key": "filters",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Property name to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time-based grouping interval (e.g., daily, hourly).",
+                              "key": "interval",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time zone offset for relative timeframes.",
+                              "key": "timezone",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "e030496e-ccfb-4f39-b8c0-369e7164ba51",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns the median numeric value of the target property across matching events."
+                      },
+                      "response": [
+                        {
+                          "id": "df99ed77-929a-4720-b7c8-7456dfb5be0e",
+                          "name": "Query result returned successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/median?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "median"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"description\": \"Result value or grouped/intervalled list of results.\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-df99ed77-929a-4720-b7c8-7456dfb5be0e"
+                        },
+                        {
+                          "id": "11f150db-a039-436d-b629-de37b47e2104",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/median?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "median"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-11f150db-a039-436d-b629-de37b47e2104"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:15.000Z",
+                      "updatedAt": "2026-07-28T02:00:15.000Z",
+                      "uid": "35240-336eeaba-f6c1-47a1-9f6a-6ac4bd69a1d2"
+                    }
+                  ],
+                  "id": "a0d9daa9-b9fa-484e-a571-3308ced9925b",
+                  "createdAt": "2026-07-28T02:00:15.000Z",
+                  "updatedAt": "2026-07-28T02:00:15.000Z",
+                  "uid": "35240-a0d9daa9-b9fa-484e-a571-3308ced9925b"
+                },
+                {
+                  "name": "percentile",
+                  "item": [
+                    {
+                      "name": "Keen Run percentile query",
+                      "id": "8778201b-2ae4-41c3-9c5b-cf19bc3e25e0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/percentile?event_collection=<string>&target_property=<string>&percentile=<number>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "percentile"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Name of the event collection to query.",
+                              "key": "event_collection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Property used as the target of the aggregation.",
+                              "key": "target_property",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Percentile to compute (e.g., 95 for the 95th percentile).",
+                              "key": "percentile",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                              "key": "timeframe",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "JSON-encoded array of filter objects to narrow events.",
+                              "key": "filters",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Property name to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time-based grouping interval (e.g., daily, hourly).",
+                              "key": "interval",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time zone offset for relative timeframes.",
+                              "key": "timezone",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "952fab3b-4bb0-4060-a785-07ea7703f204",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns the value at the specified percentile for the target property across matching events."
+                      },
+                      "response": [
+                        {
+                          "id": "67665ecd-c7c1-4b71-87df-a9314ad2f5b5",
+                          "name": "Query result returned successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/percentile?event_collection=<string>&target_property=<string>&percentile=<number>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "percentile"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Percentile to compute (e.g., 95 for the 95th percentile).",
+                                  "key": "percentile",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"description\": \"Result value or grouped/intervalled list of results.\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-67665ecd-c7c1-4b71-87df-a9314ad2f5b5"
+                        },
+                        {
+                          "id": "4a11ff67-91b0-4034-82f0-29185f9ac65a",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/percentile?event_collection=<string>&target_property=<string>&percentile=<number>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "percentile"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Percentile to compute (e.g., 95 for the 95th percentile).",
+                                  "key": "percentile",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-4a11ff67-91b0-4034-82f0-29185f9ac65a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:15.000Z",
+                      "updatedAt": "2026-07-28T02:00:15.000Z",
+                      "uid": "35240-8778201b-2ae4-41c3-9c5b-cf19bc3e25e0"
+                    }
+                  ],
+                  "id": "d967a965-6e60-4c1a-ad0e-69094c0cd48b",
+                  "createdAt": "2026-07-28T02:00:15.000Z",
+                  "updatedAt": "2026-07-28T02:00:15.000Z",
+                  "uid": "35240-d967a965-6e60-4c1a-ad0e-69094c0cd48b"
+                },
+                {
+                  "name": "select_unique",
+                  "item": [
+                    {
+                      "name": "Keen Run select_unique query",
+                      "id": "d7d2851a-4bbc-4668-a332-5757eeba3cad",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/select_unique?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "select_unique"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Name of the event collection to query.",
+                              "key": "event_collection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Property used as the target of the aggregation.",
+                              "key": "target_property",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                              "key": "timeframe",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "JSON-encoded array of filter objects to narrow events.",
+                              "key": "filters",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Property name to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time-based grouping interval (e.g., daily, hourly).",
+                              "key": "interval",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time zone offset for relative timeframes.",
+                              "key": "timezone",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "034870f8-cbe4-40fc-8dc3-db66505b0040",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns the distinct values of the target property across matching events."
+                      },
+                      "response": [
+                        {
+                          "id": "c4534565-fcb2-497f-8a91-be6a8111d3c2",
+                          "name": "Query result returned successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/select_unique?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "select_unique"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"description\": \"Result value or grouped/intervalled list of results.\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-c4534565-fcb2-497f-8a91-be6a8111d3c2"
+                        },
+                        {
+                          "id": "5e613dcc-60ff-4cc7-841f-d5b7307be338",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/select_unique?event_collection=<string>&target_property=<string>&timeframe=<string>&filters=<string>&group_by=<string>&interval=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "select_unique"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name of the event collection to query.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Property used as the target of the aggregation.",
+                                  "key": "target_property",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the query (e.g., this_7_days).",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects to narrow events.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Property name to group results by.",
+                                  "key": "group_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time-based grouping interval (e.g., daily, hourly).",
+                                  "key": "interval",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-5e613dcc-60ff-4cc7-841f-d5b7307be338"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:15.000Z",
+                      "updatedAt": "2026-07-28T02:00:15.000Z",
+                      "uid": "35240-d7d2851a-4bbc-4668-a332-5757eeba3cad"
+                    }
+                  ],
+                  "id": "be9ddca2-76b2-45ad-af06-e5427641a9ab",
+                  "createdAt": "2026-07-28T02:00:15.000Z",
+                  "updatedAt": "2026-07-28T02:00:15.000Z",
+                  "uid": "35240-be9ddca2-76b2-45ad-af06-e5427641a9ab"
+                },
+                {
+                  "name": "funnel",
+                  "item": [
+                    {
+                      "name": "Keen Run funnel query",
+                      "id": "66f6acad-498b-45bd-874a-5f08e8fa4954",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"steps\": [\n    {\n      \"event_collection\": \"<string>\",\n      \"actor_property\": \"<string>\",\n      \"timeframe\": \"<string>\"\n    },\n    {\n      \"event_collection\": \"<string>\",\n      \"actor_property\": \"<string>\",\n      \"timeframe\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/funnel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "funnel"
+                          ],
+                          "variable": [
+                            {
+                              "id": "dbc65758-010a-4de8-9ffb-932797db1e84",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Analyzes user progression through an ordered sequence of steps, each defined as a query against an event collection."
+                      },
+                      "response": [
+                        {
+                          "id": "b1c68337-00c0-4f59-9cca-7380282303b9",
+                          "name": "Funnel result with counts per step.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"steps\": [\n    {\n      \"event_collection\": \"<string>\",\n      \"actor_property\": \"<string>\",\n      \"timeframe\": \"<string>\"\n    },\n    {\n      \"event_collection\": \"<string>\",\n      \"actor_property\": \"<string>\",\n      \"timeframe\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/funnel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "funnel"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-b1c68337-00c0-4f59-9cca-7380282303b9"
+                        },
+                        {
+                          "id": "472cbe2e-796b-4cd6-9658-968692ee7ae4",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"steps\": [\n    {\n      \"event_collection\": \"<string>\",\n      \"actor_property\": \"<string>\",\n      \"timeframe\": \"<string>\"\n    },\n    {\n      \"event_collection\": \"<string>\",\n      \"actor_property\": \"<string>\",\n      \"timeframe\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/funnel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "funnel"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-472cbe2e-796b-4cd6-9658-968692ee7ae4"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:15.000Z",
+                      "updatedAt": "2026-07-28T02:00:15.000Z",
+                      "uid": "35240-66f6acad-498b-45bd-874a-5f08e8fa4954"
+                    }
+                  ],
+                  "id": "19b0f8b6-91ae-42d7-adc6-62f01efd77b0",
+                  "createdAt": "2026-07-28T02:00:15.000Z",
+                  "updatedAt": "2026-07-28T02:00:15.000Z",
+                  "uid": "35240-19b0f8b6-91ae-42d7-adc6-62f01efd77b0"
+                },
+                {
+                  "name": "multi_analysis",
+                  "item": [
+                    {
+                      "name": "Keen Run multi_analysis query",
+                      "id": "99803b02-1e75-46a6-8e09-67c5cf05f559",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"event_collection\": \"<string>\",\n  \"analyses\": {\n    \"irure_6\": {\n      \"analysis_type\": \"<string>\",\n      \"target_property\": \"<string>\",\n      \"percentile\": \"<number>\"\n    }\n  },\n  \"timeframe\": \"<string>\",\n  \"group_by\": \"<string>\",\n  \"interval\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/multi_analysis",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "multi_analysis"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c2df3c54-6f4c-436a-b685-71cdb22aebdf",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Runs multiple analyses on the same event collection in a single request, returning all results in a combined response."
+                      },
+                      "response": [
+                        {
+                          "id": "3f82c184-16b4-48ee-9b26-536d63c4603e",
+                          "name": "Query result returned successfully.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"event_collection\": \"<string>\",\n  \"analyses\": {\n    \"irure_6\": {\n      \"analysis_type\": \"<string>\",\n      \"target_property\": \"<string>\",\n      \"percentile\": \"<number>\"\n    }\n  },\n  \"timeframe\": \"<string>\",\n  \"group_by\": \"<string>\",\n  \"interval\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/multi_analysis",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "multi_analysis"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"description\": \"Result value or grouped/intervalled list of results.\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-3f82c184-16b4-48ee-9b26-536d63c4603e"
+                        },
+                        {
+                          "id": "3d3d618c-88c3-46e5-ba01-d79aeea866ec",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"event_collection\": \"<string>\",\n  \"analyses\": {\n    \"irure_6\": {\n      \"analysis_type\": \"<string>\",\n      \"target_property\": \"<string>\",\n      \"percentile\": \"<number>\"\n    }\n  },\n  \"timeframe\": \"<string>\",\n  \"group_by\": \"<string>\",\n  \"interval\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/multi_analysis",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "multi_analysis"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:15.000Z",
+                          "updatedAt": "2026-07-28T02:00:15.000Z",
+                          "uid": "35240-3d3d618c-88c3-46e5-ba01-d79aeea866ec"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:15.000Z",
+                      "updatedAt": "2026-07-28T02:00:15.000Z",
+                      "uid": "35240-99803b02-1e75-46a6-8e09-67c5cf05f559"
+                    }
+                  ],
+                  "id": "f644abe7-4fcc-44a0-8609-e4d15b585991",
+                  "createdAt": "2026-07-28T02:00:15.000Z",
+                  "updatedAt": "2026-07-28T02:00:15.000Z",
+                  "uid": "35240-f644abe7-4fcc-44a0-8609-e4d15b585991"
+                }
+              ],
+              "id": "6f02a8bf-18be-4ae8-831f-24a8725682a5",
+              "createdAt": "2026-07-28T02:00:15.000Z",
+              "updatedAt": "2026-07-28T02:00:15.000Z",
+              "uid": "35240-6f02a8bf-18be-4ae8-831f-24a8725682a5"
+            }
+          ],
+          "id": "49e3bc71-535c-4e5f-b473-c80bb7a03bb7",
+          "createdAt": "2026-07-28T02:00:15.000Z",
+          "updatedAt": "2026-07-28T02:00:15.000Z",
+          "uid": "35240-49e3bc71-535c-4e5f-b473-c80bb7a03bb7"
+        }
+      ],
+      "id": "63eadb15-9ab1-4c8c-925d-2d5dcad8beb6",
+      "createdAt": "2026-07-28T02:00:15.000Z",
+      "updatedAt": "2026-07-28T02:00:15.000Z",
+      "uid": "35240-63eadb15-9ab1-4c8c-925d-2d5dcad8beb6"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.keen.io/3.0"
+    }
+  ]
+}

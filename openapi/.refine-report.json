@@ -1,0 +1,24 @@
+{
+  "provider": "keen",
+  "sources": [
+    "keen-cached-queries-api-openapi.yml",
+    "keen-collections-api-openapi.yml",
+    "keen-events-api-openapi.yml",
+    "keen-extractions-api-openapi.yml",
+    "keen-queries-api-openapi.yml",
+    "keen-saved-queries-api-openapi.yml"
+  ],
+  "outputs": [
+    "keen-cached-queries-api-openapi.yml",
+    "keen-collections-api-openapi.yml",
+    "keen-events-api-openapi.yml",
+    "keen-extractions-api-openapi.yml",
+    "keen-queries-api-openapi.yml",
+    "keen-saved-queries-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

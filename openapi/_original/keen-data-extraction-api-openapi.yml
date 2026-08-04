@@ -1,0 +1,129 @@
+openapi: 3.1.0
+info:
+  title: Keen Data Extraction API
+  description: >-
+    The Keen Data Extraction API enables developers to retrieve raw event
+    data from event collections. It supports filtering, time framing, and
+    selection of specific properties, and is useful for exporting data for
+    external analysis, auditing, or feeding data into other systems and
+    processing pipelines. Synchronous extractions return JSON responses;
+    asynchronous extractions deliver result files via email.
+  version: '3.0'
+  contact:
+    name: Keen Support
+    url: https://keen.io/support
+  license:
+    name: Proprietary
+    url: https://keen.io/terms-of-service
+externalDocs:
+  description: Keen Data Extraction API Documentation
+  url: https://keen.io/docs/api/#extractions
+servers:
+  - url: https://api.keen.io/3.0
+    description: Keen production API
+tags:
+  - name: Extractions
+    description: Extract raw event data from Keen event collections.
+paths:
+  /projects/{projectId}/queries/extraction:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    get:
+      operationId: extractEvents
+      summary: Keen Extract events synchronously
+      description: >-
+        Returns up to 100,000 raw events from the specified event collection
+        that match the supplied filters and time frame. For larger result
+        sets, use the asynchronous extraction by supplying an email_address.
+      tags: [Extractions]
+      parameters:
+        - name: event_collection
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Event collection to extract from.
+        - name: timeframe
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Relative or absolute time frame for the extraction.
+        - name: filters
+          in: query
+          required: false
+          schema:
+            type: string
+          description: JSON-encoded array of filter objects.
+        - name: latest
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: Limit the response to the latest N events.
+        - name: email_address
+          in: query
+          required: false
+          schema:
+            type: string
+            format: email
+          description: When provided, runs extraction asynchronously and emails a result link.
+        - name: property_names
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Comma-separated list of property names to include.
+        - name: timezone
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Time zone offset for relative timeframes.
+      responses:
+        '200':
+          description: Extraction result.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Keen project identifier.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    readKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Keen Read Key for extractions.
+security:
+  - readKey: []

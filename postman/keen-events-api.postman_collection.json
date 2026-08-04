@@ -1,0 +1,453 @@
+{
+  "info": {
+    "_postman_id": "c92f9d25-70e0-4a51-bfe8-255033f3d2a5",
+    "name": "Keen Cached Queries Events API",
+    "description": "The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are automatically refreshed on a schedule. Cached queries improve performance for frequently accessed analytics by storing pre-computed results, making them ideal for powering dashboards and embedded analytics experiences without incurring per-request rate limits.\n\nContact Support:\n Name: Keen Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:00:12.000Z",
+    "updatedAt": "2026-07-28T02:00:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c92f9d25-70e0-4a51-bfe8-255033f3d2a5"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "events",
+              "item": [
+                {
+                  "name": "{eventCollection}",
+                  "item": [
+                    {
+                      "name": "Keen Record a single event",
+                      "id": "4145424b-60f2-410e-955f-4b8a11d19f2f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"est6\": true\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/events/:eventCollection",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "events",
+                            ":eventCollection"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4a578603-bac4-4d8b-8e70-58f10dcd44d0",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            },
+                            {
+                              "id": "996fff2b-6e39-4262-9e34-86c0c968dc1d",
+                              "key": "eventCollection",
+                              "value": "<string>",
+                              "description": "(Required) Name of the event collection."
+                            }
+                          ]
+                        },
+                        "description": "Records a single event in the specified event collection for the given Keen project. The request body is an arbitrary JSON object whose properties become event properties. Requires a Write Key with permission to record events into the project."
+                      },
+                      "response": [
+                        {
+                          "id": "50319719-503b-407d-83ca-3a5196bcf5f0",
+                          "name": "Event recorded successfully.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"est6\": true\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/events/:eventCollection",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "events",
+                                ":eventCollection"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "eventCollection"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"created\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T02:00:13.000Z",
+                          "updatedAt": "2026-07-28T02:00:13.000Z",
+                          "uid": "35240-50319719-503b-407d-83ca-3a5196bcf5f0"
+                        },
+                        {
+                          "id": "19e31ba6-caaa-4d0e-9dec-d1042d809811",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"est6\": true\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/events/:eventCollection",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "events",
+                                ":eventCollection"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "eventCollection"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:13.000Z",
+                          "updatedAt": "2026-07-28T02:00:13.000Z",
+                          "uid": "35240-19e31ba6-caaa-4d0e-9dec-d1042d809811"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:13.000Z",
+                      "updatedAt": "2026-07-28T02:00:13.000Z",
+                      "uid": "35240-4145424b-60f2-410e-955f-4b8a11d19f2f"
+                    }
+                  ],
+                  "id": "89279e9a-df31-4a29-9589-c94978be80c3",
+                  "createdAt": "2026-07-28T02:00:13.000Z",
+                  "updatedAt": "2026-07-28T02:00:13.000Z",
+                  "uid": "35240-89279e9a-df31-4a29-9589-c94978be80c3"
+                },
+                {
+                  "name": "Keen Record multiple events",
+                  "id": "151d4603-33a9-48c0-a6e3-336bf81062ec",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"sunt_95\": [\n    {\n      \"dolord4\": -65170861.73104927,\n      \"quif1\": true,\n      \"commodo_9\": true\n    },\n    {\n      \"aliquip_48\": \"sit adipisicing deserunt eu\",\n      \"nisi6cb\": -38974036.39685706,\n      \"sint_ef\": true\n    }\n  ],\n  \"culpa_7a\": [\n    {\n      \"laborum_23\": false\n    },\n    {\n      \"anima43\": 83226028\n    }\n  ],\n  \"sint9b7\": [\n    {\n      \"eiusmod3\": \"laboris\",\n      \"consectetur_c\": -3240272.591418907,\n      \"occaecatbf\": true,\n      \"dolore5f9\": true,\n      \"Lorem6\": -34738133.902449064\n    },\n    {\n      \"culpa8\": \"incididunt\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/events",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "events"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3621736c-fd7b-4098-9fd2-a6014fea081f",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) Keen project identifier."
+                        }
+                      ]
+                    },
+                    "description": "Records multiple events across one or more event collections in a single request. The body is a JSON object whose keys are event collection names and whose values are arrays of event objects. Requires a Write Key with permission to record events."
+                  },
+                  "response": [
+                    {
+                      "id": "95303749-f677-4cba-8db4-a61bdcc1293f",
+                      "name": "Events recorded with per-collection results.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"sunt_95\": [\n    {\n      \"dolord4\": -65170861.73104927,\n      \"quif1\": true,\n      \"commodo_9\": true\n    },\n    {\n      \"aliquip_48\": \"sit adipisicing deserunt eu\",\n      \"nisi6cb\": -38974036.39685706,\n      \"sint_ef\": true\n    }\n  ],\n  \"culpa_7a\": [\n    {\n      \"laborum_23\": false\n    },\n    {\n      \"anima43\": 83226028\n    }\n  ],\n  \"sint9b7\": [\n    {\n      \"eiusmod3\": \"laboris\",\n      \"consectetur_c\": -3240272.591418907,\n      \"occaecatbf\": true,\n      \"dolore5f9\": true,\n      \"Lorem6\": -34738133.902449064\n    },\n    {\n      \"culpa8\": \"incididunt\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/events",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "events"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"ullamco263\": [\n    {\n      \"success\": \"<boolean>\"\n    },\n    {\n      \"success\": \"<boolean>\"\n    }\n  ],\n  \"sunt_5\": [\n    {\n      \"success\": \"<boolean>\"\n    },\n    {\n      \"success\": \"<boolean>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:00:13.000Z",
+                      "updatedAt": "2026-07-28T02:00:13.000Z",
+                      "uid": "35240-95303749-f677-4cba-8db4-a61bdcc1293f"
+                    },
+                    {
+                      "id": "9a7b2bfc-4188-4f3f-af6a-e914ec0ab701",
+                      "name": "Missing or invalid API key.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"sunt_95\": [\n    {\n      \"dolord4\": -65170861.73104927,\n      \"quif1\": true,\n      \"commodo_9\": true\n    },\n    {\n      \"aliquip_48\": \"sit adipisicing deserunt eu\",\n      \"nisi6cb\": -38974036.39685706,\n      \"sint_ef\": true\n    }\n  ],\n  \"culpa_7a\": [\n    {\n      \"laborum_23\": false\n    },\n    {\n      \"anima43\": 83226028\n    }\n  ],\n  \"sint9b7\": [\n    {\n      \"eiusmod3\": \"laboris\",\n      \"consectetur_c\": -3240272.591418907,\n      \"occaecatbf\": true,\n      \"dolore5f9\": true,\n      \"Lorem6\": -34738133.902449064\n    },\n    {\n      \"culpa8\": \"incididunt\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/events",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "events"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:00:13.000Z",
+                      "updatedAt": "2026-07-28T02:00:13.000Z",
+                      "uid": "35240-9a7b2bfc-4188-4f3f-af6a-e914ec0ab701"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:00:13.000Z",
+                  "updatedAt": "2026-07-28T02:00:13.000Z",
+                  "uid": "35240-151d4603-33a9-48c0-a6e3-336bf81062ec"
+                }
+              ],
+              "id": "da01894e-ab55-4839-8bfb-d6557d0539f3",
+              "createdAt": "2026-07-28T02:00:13.000Z",
+              "updatedAt": "2026-07-28T02:00:13.000Z",
+              "uid": "35240-da01894e-ab55-4839-8bfb-d6557d0539f3"
+            }
+          ],
+          "id": "6c1e9147-2480-4728-b6e1-df7dd29ce2c2",
+          "createdAt": "2026-07-28T02:00:13.000Z",
+          "updatedAt": "2026-07-28T02:00:13.000Z",
+          "uid": "35240-6c1e9147-2480-4728-b6e1-df7dd29ce2c2"
+        }
+      ],
+      "id": "6c7a5a5c-103d-4c9c-a84b-7bac66a691d7",
+      "createdAt": "2026-07-28T02:00:13.000Z",
+      "updatedAt": "2026-07-28T02:00:13.000Z",
+      "uid": "35240-6c7a5a5c-103d-4c9c-a84b-7bac66a691d7"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.keen.io/3.0"
+    }
+  ]
+}

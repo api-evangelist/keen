@@ -1,0 +1,393 @@
+openapi: 3.1.0
+info:
+  title: Keen Query API
+  description: >-
+    The Keen Query API exposes the analytical query types provided by
+    the Keen analytics platform: count, count_unique, sum, average, minimum,
+    maximum, median, percentile, select_unique, funnel, and multi_analysis.
+    Queries support filters, time frames, intervals, group-by, and time zone
+    parameters for flexible multi-dimensional analysis of event data stored
+    in Keen event collections.
+  version: '3.0'
+  contact:
+    name: Keen Support
+    url: https://keen.io/support
+  license:
+    name: Proprietary
+    url: https://keen.io/terms-of-service
+externalDocs:
+  description: Keen Query API Documentation
+  url: https://keen.io/docs/api/#analyses
+servers:
+  - url: https://api.keen.io/3.0
+    description: Keen production API
+tags:
+  - name: Queries
+    description: Run analytical queries against Keen event collections.
+paths:
+  /projects/{projectId}/queries/count:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    get:
+      operationId: queryCount
+      summary: Keen Run count query
+      description: Returns the number of events in a collection that match the supplied parameters.
+      tags: [Queries]
+      parameters:
+        - $ref: '#/components/parameters/eventCollectionQ'
+        - $ref: '#/components/parameters/timeframe'
+        - $ref: '#/components/parameters/filters'
+        - $ref: '#/components/parameters/groupBy'
+        - $ref: '#/components/parameters/interval'
+        - $ref: '#/components/parameters/timezone'
+      responses:
+        '200':
+          $ref: '#/components/responses/QueryResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/count_unique:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    get:
+      operationId: queryCountUnique
+      summary: Keen Run count_unique query
+      description: Returns the number of distinct values for the specified target property in matching events.
+      tags: [Queries]
+      parameters:
+        - $ref: '#/components/parameters/eventCollectionQ'
+        - $ref: '#/components/parameters/targetProperty'
+        - $ref: '#/components/parameters/timeframe'
+        - $ref: '#/components/parameters/filters'
+        - $ref: '#/components/parameters/groupBy'
+        - $ref: '#/components/parameters/interval'
+        - $ref: '#/components/parameters/timezone'
+      responses:
+        '200':
+          $ref: '#/components/responses/QueryResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/sum:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    get:
+      operationId: querySum
+      summary: Keen Run sum query
+      description: Returns the sum of numeric values for the target property across matching events.
+      tags: [Queries]
+      parameters:
+        - $ref: '#/components/parameters/eventCollectionQ'
+        - $ref: '#/components/parameters/targetProperty'
+        - $ref: '#/components/parameters/timeframe'
+        - $ref: '#/components/parameters/filters'
+        - $ref: '#/components/parameters/groupBy'
+        - $ref: '#/components/parameters/interval'
+        - $ref: '#/components/parameters/timezone'
+      responses:
+        '200':
+          $ref: '#/components/responses/QueryResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/average:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    get:
+      operationId: queryAverage
+      summary: Keen Run average query
+      description: Returns the arithmetic mean of numeric values for the target property across matching events.
+      tags: [Queries]
+      parameters:
+        - $ref: '#/components/parameters/eventCollectionQ'
+        - $ref: '#/components/parameters/targetProperty'
+        - $ref: '#/components/parameters/timeframe'
+        - $ref: '#/components/parameters/filters'
+        - $ref: '#/components/parameters/groupBy'
+        - $ref: '#/components/parameters/interval'
+        - $ref: '#/components/parameters/timezone'
+      responses:
+        '200':
+          $ref: '#/components/responses/QueryResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/minimum:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    get:
+      operationId: queryMinimum
+      summary: Keen Run minimum query
+      description: Returns the minimum numeric value of the target property across matching events.
+      tags: [Queries]
+      parameters:
+        - $ref: '#/components/parameters/eventCollectionQ'
+        - $ref: '#/components/parameters/targetProperty'
+        - $ref: '#/components/parameters/timeframe'
+        - $ref: '#/components/parameters/filters'
+        - $ref: '#/components/parameters/groupBy'
+        - $ref: '#/components/parameters/interval'
+        - $ref: '#/components/parameters/timezone'
+      responses:
+        '200':
+          $ref: '#/components/responses/QueryResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/maximum:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    get:
+      operationId: queryMaximum
+      summary: Keen Run maximum query
+      description: Returns the maximum numeric value of the target property across matching events.
+      tags: [Queries]
+      parameters:
+        - $ref: '#/components/parameters/eventCollectionQ'
+        - $ref: '#/components/parameters/targetProperty'
+        - $ref: '#/components/parameters/timeframe'
+        - $ref: '#/components/parameters/filters'
+        - $ref: '#/components/parameters/groupBy'
+        - $ref: '#/components/parameters/interval'
+        - $ref: '#/components/parameters/timezone'
+      responses:
+        '200':
+          $ref: '#/components/responses/QueryResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/median:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    get:
+      operationId: queryMedian
+      summary: Keen Run median query
+      description: Returns the median numeric value of the target property across matching events.
+      tags: [Queries]
+      parameters:
+        - $ref: '#/components/parameters/eventCollectionQ'
+        - $ref: '#/components/parameters/targetProperty'
+        - $ref: '#/components/parameters/timeframe'
+        - $ref: '#/components/parameters/filters'
+        - $ref: '#/components/parameters/groupBy'
+        - $ref: '#/components/parameters/interval'
+        - $ref: '#/components/parameters/timezone'
+      responses:
+        '200':
+          $ref: '#/components/responses/QueryResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/percentile:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    get:
+      operationId: queryPercentile
+      summary: Keen Run percentile query
+      description: Returns the value at the specified percentile for the target property across matching events.
+      tags: [Queries]
+      parameters:
+        - $ref: '#/components/parameters/eventCollectionQ'
+        - $ref: '#/components/parameters/targetProperty'
+        - name: percentile
+          in: query
+          required: true
+          schema:
+            type: number
+            minimum: 0
+            maximum: 100
+          description: Percentile to compute (e.g., 95 for the 95th percentile).
+        - $ref: '#/components/parameters/timeframe'
+        - $ref: '#/components/parameters/filters'
+        - $ref: '#/components/parameters/groupBy'
+        - $ref: '#/components/parameters/interval'
+        - $ref: '#/components/parameters/timezone'
+      responses:
+        '200':
+          $ref: '#/components/responses/QueryResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/select_unique:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    get:
+      operationId: querySelectUnique
+      summary: Keen Run select_unique query
+      description: Returns the distinct values of the target property across matching events.
+      tags: [Queries]
+      parameters:
+        - $ref: '#/components/parameters/eventCollectionQ'
+        - $ref: '#/components/parameters/targetProperty'
+        - $ref: '#/components/parameters/timeframe'
+        - $ref: '#/components/parameters/filters'
+        - $ref: '#/components/parameters/groupBy'
+        - $ref: '#/components/parameters/interval'
+        - $ref: '#/components/parameters/timezone'
+      responses:
+        '200':
+          $ref: '#/components/responses/QueryResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/funnel:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    post:
+      operationId: queryFunnel
+      summary: Keen Run funnel query
+      description: Analyzes user progression through an ordered sequence of steps, each defined as a query against an event collection.
+      tags: [Queries]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [steps]
+              properties:
+                steps:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      event_collection:
+                        type: string
+                      actor_property:
+                        type: string
+                      timeframe:
+                        type: string
+                      filters:
+                        type: array
+                        items: { type: object }
+      responses:
+        '200':
+          description: Funnel result with counts per step.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      type: integer
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /projects/{projectId}/queries/multi_analysis:
+    parameters:
+      - $ref: '#/components/parameters/projectId'
+    post:
+      operationId: queryMultiAnalysis
+      summary: Keen Run multi_analysis query
+      description: Runs multiple analyses on the same event collection in a single request, returning all results in a combined response.
+      tags: [Queries]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [event_collection, analyses]
+              properties:
+                event_collection: { type: string }
+                analyses:
+                  type: object
+                  additionalProperties:
+                    type: object
+                    properties:
+                      analysis_type: { type: string }
+                      target_property: { type: string }
+                      percentile: { type: number }
+                timeframe: { type: string }
+                filters:
+                  type: array
+                  items: { type: object }
+                group_by: { type: string }
+                interval: { type: string }
+      responses:
+        '200':
+          $ref: '#/components/responses/QueryResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Keen project identifier.
+    eventCollectionQ:
+      name: event_collection
+      in: query
+      required: true
+      schema:
+        type: string
+      description: Name of the event collection to query.
+    targetProperty:
+      name: target_property
+      in: query
+      required: true
+      schema:
+        type: string
+      description: Property used as the target of the aggregation.
+    timeframe:
+      name: timeframe
+      in: query
+      required: true
+      schema:
+        type: string
+      description: Relative or absolute time frame for the query (e.g., this_7_days).
+    filters:
+      name: filters
+      in: query
+      required: false
+      schema:
+        type: string
+      description: JSON-encoded array of filter objects to narrow events.
+    groupBy:
+      name: group_by
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Property name to group results by.
+    interval:
+      name: interval
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Time-based grouping interval (e.g., daily, hourly).
+    timezone:
+      name: timezone
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Time zone offset for relative timeframes.
+  responses:
+    QueryResult:
+      description: Query result returned successfully.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                description: Result value or grouped/intervalled list of results.
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    readKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Keen Read Key for query access.
+security:
+  - readKey: []

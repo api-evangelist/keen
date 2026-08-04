@@ -1,0 +1,945 @@
+{
+  "info": {
+    "_postman_id": "c9c05ebf-2a47-4e42-a0ce-379a57981a1f",
+    "name": "Keen Cached Queries Saved Queries API",
+    "description": "The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are automatically refreshed on a schedule. Cached queries improve performance for frequently accessed analytics by storing pre-computed results, making them ideal for powering dashboards and embedded analytics experiences without incurring per-request rate limits.\n\nContact Support:\n Name: Keen Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:59:49.000Z",
+    "updatedAt": "2026-07-28T01:59:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c9c05ebf-2a47-4e42-a0ce-379a57981a1f"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "queries",
+              "item": [
+                {
+                  "name": "saved",
+                  "item": [
+                    {
+                      "name": "{queryName}",
+                      "item": [
+                        {
+                          "name": "result",
+                          "item": [
+                            {
+                              "name": "Keen Run a saved query",
+                              "id": "4496972a-4542-4d64-8ad7-dd442795cd61",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName/result",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "saved",
+                                    ":queryName",
+                                    "result"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "3b031d7e-15e8-4ce4-b0dd-4a25f53c9ead",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) Keen project identifier."
+                                    },
+                                    {
+                                      "id": "2f6ac5fd-3e45-4aa4-b83b-a60a8dc0490e",
+                                      "key": "queryName",
+                                      "value": "<string>",
+                                      "description": "(Required) Name of the saved query."
+                                    }
+                                  ]
+                                },
+                                "description": "Executes the saved query and returns its result. Requires a Read Key."
+                              },
+                              "response": [
+                                {
+                                  "id": "3484d87c-ecf6-482e-b0f5-6c9279923c1e",
+                                  "name": "Saved query result.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName/result",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "queries",
+                                        "saved",
+                                        ":queryName",
+                                        "result"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "queryName"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"result\": {}\n}",
+                                  "createdAt": "2026-07-28T01:59:49.000Z",
+                                  "updatedAt": "2026-07-28T01:59:49.000Z",
+                                  "uid": "35240-3484d87c-ecf6-482e-b0f5-6c9279923c1e"
+                                },
+                                {
+                                  "id": "bea152f5-1e87-4c9d-8a8e-6c289c1aa14f",
+                                  "name": "Missing or invalid API key.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName/result",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "queries",
+                                        "saved",
+                                        ":queryName",
+                                        "result"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "queryName"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:59:49.000Z",
+                                  "updatedAt": "2026-07-28T01:59:49.000Z",
+                                  "uid": "35240-bea152f5-1e87-4c9d-8a8e-6c289c1aa14f"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:59:49.000Z",
+                              "updatedAt": "2026-07-28T01:59:49.000Z",
+                              "uid": "35240-4496972a-4542-4d64-8ad7-dd442795cd61"
+                            }
+                          ],
+                          "id": "5ae3a3d6-c209-4372-b9ec-974951fbaf48",
+                          "createdAt": "2026-07-28T01:59:49.000Z",
+                          "updatedAt": "2026-07-28T01:59:49.000Z",
+                          "uid": "35240-5ae3a3d6-c209-4372-b9ec-974951fbaf48"
+                        },
+                        {
+                          "name": "Keen Get a saved query",
+                          "id": "76bde9a0-3ee6-466a-8e3f-dc8bb3460f85",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "saved",
+                                ":queryName"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4315a4cc-2879-49a6-928e-ef39c0383f30",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) Keen project identifier."
+                                },
+                                {
+                                  "id": "54ed75eb-c2ce-4193-9d1e-50d4bd5784d3",
+                                  "key": "queryName",
+                                  "value": "<string>",
+                                  "description": "(Required) Name of the saved query."
+                                }
+                              ]
+                            },
+                            "description": "Returns the definition of a single saved query."
+                          },
+                          "response": [
+                            {
+                              "id": "8c307407-99c2-4e4d-a9b2-eb903d0368c6",
+                              "name": "Saved query definition.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "saved",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"query\": {\n    \"labore_b\": -36773435\n  },\n  \"metadata\": {\n    \"elit_61\": true,\n    \"nisi_468\": true\n  },\n  \"query_name\": \"<string>\",\n  \"last_modified_date\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-07-28T01:59:49.000Z",
+                              "updatedAt": "2026-07-28T01:59:49.000Z",
+                              "uid": "35240-8c307407-99c2-4e4d-a9b2-eb903d0368c6"
+                            },
+                            {
+                              "id": "6896590d-1296-44f1-82e0-3486e974c6e0",
+                              "name": "Missing or invalid API key.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "saved",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:59:49.000Z",
+                              "updatedAt": "2026-07-28T01:59:49.000Z",
+                              "uid": "35240-6896590d-1296-44f1-82e0-3486e974c6e0"
+                            },
+                            {
+                              "id": "ba045812-2eb6-4cbb-869b-5fe07f473e16",
+                              "name": "Saved query not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "saved",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:59:49.000Z",
+                              "updatedAt": "2026-07-28T01:59:49.000Z",
+                              "uid": "35240-ba045812-2eb6-4cbb-869b-5fe07f473e16"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:59:49.000Z",
+                          "updatedAt": "2026-07-28T01:59:49.000Z",
+                          "uid": "35240-76bde9a0-3ee6-466a-8e3f-dc8bb3460f85"
+                        },
+                        {
+                          "name": "Keen Create or update a saved query",
+                          "id": "bbbf957a-89ff-45d6-a12b-349a8d3ad815",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"query\": {\n    \"cupidatatf\": \"voluptate\",\n    \"veniam_00\": false\n  },\n  \"metadata\": {\n    \"consequat_fb1\": false,\n    \"sunt_8\": false,\n    \"do33c\": 92288707.62111679,\n    \"incididunt_3\": \"eu quis\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "saved",
+                                ":queryName"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e1aff98f-7402-4026-af14-86c0395c6fac",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) Keen project identifier."
+                                },
+                                {
+                                  "id": "4892cfdd-1c26-44c0-a5b6-cb3bedd8d3f8",
+                                  "key": "queryName",
+                                  "value": "<string>",
+                                  "description": "(Required) Name of the saved query."
+                                }
+                              ]
+                            },
+                            "description": "Creates a new saved query or updates an existing one with the given name. Requires a Master Key."
+                          },
+                          "response": [
+                            {
+                              "id": "9c6f1069-a159-40c6-bfea-2b257fd96637",
+                              "name": "Saved query created or updated.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"query\": {\n    \"cupidatatf\": \"voluptate\",\n    \"veniam_00\": false\n  },\n  \"metadata\": {\n    \"consequat_fb1\": false,\n    \"sunt_8\": false,\n    \"do33c\": 92288707.62111679,\n    \"incididunt_3\": \"eu quis\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "saved",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"query\": {\n    \"labore_b\": -36773435\n  },\n  \"metadata\": {\n    \"elit_61\": true,\n    \"nisi_468\": true\n  },\n  \"query_name\": \"<string>\",\n  \"last_modified_date\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-07-28T01:59:49.000Z",
+                              "updatedAt": "2026-07-28T01:59:49.000Z",
+                              "uid": "35240-9c6f1069-a159-40c6-bfea-2b257fd96637"
+                            },
+                            {
+                              "id": "91aab581-1389-4528-ac12-4eb737185ca7",
+                              "name": "Missing or invalid API key.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"query\": {\n    \"cupidatatf\": \"voluptate\",\n    \"veniam_00\": false\n  },\n  \"metadata\": {\n    \"consequat_fb1\": false,\n    \"sunt_8\": false,\n    \"do33c\": 92288707.62111679,\n    \"incididunt_3\": \"eu quis\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "saved",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:59:49.000Z",
+                              "updatedAt": "2026-07-28T01:59:49.000Z",
+                              "uid": "35240-91aab581-1389-4528-ac12-4eb737185ca7"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:59:49.000Z",
+                          "updatedAt": "2026-07-28T01:59:49.000Z",
+                          "uid": "35240-bbbf957a-89ff-45d6-a12b-349a8d3ad815"
+                        },
+                        {
+                          "name": "Keen Delete a saved query",
+                          "id": "a093cada-0e2e-4f72-a6f5-e444f479300a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "saved",
+                                ":queryName"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4b5e1905-66b2-40c1-b24d-d22d70c85a3c",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) Keen project identifier."
+                                },
+                                {
+                                  "id": "62f66706-978b-4d9e-950c-750eba2f67c4",
+                                  "key": "queryName",
+                                  "value": "<string>",
+                                  "description": "(Required) Name of the saved query."
+                                }
+                              ]
+                            },
+                            "description": "Removes a saved query from the project. Requires a Master Key."
+                          },
+                          "response": [
+                            {
+                              "id": "4302525f-11b5-4e71-9b54-040a116bda2c",
+                              "name": "Saved query deleted.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "saved",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:59:49.000Z",
+                              "updatedAt": "2026-07-28T01:59:49.000Z",
+                              "uid": "35240-4302525f-11b5-4e71-9b54-040a116bda2c"
+                            },
+                            {
+                              "id": "ed6eebc7-08fe-4c8f-88ac-af140100133a",
+                              "name": "Missing or invalid API key.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/queries/saved/:queryName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "queries",
+                                    "saved",
+                                    ":queryName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "queryName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:59:49.000Z",
+                              "updatedAt": "2026-07-28T01:59:49.000Z",
+                              "uid": "35240-ed6eebc7-08fe-4c8f-88ac-af140100133a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:59:49.000Z",
+                          "updatedAt": "2026-07-28T01:59:49.000Z",
+                          "uid": "35240-a093cada-0e2e-4f72-a6f5-e444f479300a"
+                        }
+                      ],
+                      "id": "cce63db4-eef3-40fa-a5ef-946971a1371c",
+                      "createdAt": "2026-07-28T01:59:49.000Z",
+                      "updatedAt": "2026-07-28T01:59:49.000Z",
+                      "uid": "35240-cce63db4-eef3-40fa-a5ef-946971a1371c"
+                    },
+                    {
+                      "name": "Keen List saved queries",
+                      "id": "84068132-6ff4-4aa2-b5e9-5625eb74643b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/saved",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "saved"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0d7aa93a-bb7f-494a-b466-fafd8d33fcb3",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns the list of saved queries defined for the project. Requires a Master Key."
+                      },
+                      "response": [
+                        {
+                          "id": "51996b2d-3b1d-458e-a7d9-c4e59e9f6147",
+                          "name": "List of saved query metadata.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/saved",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "saved"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"query\": {\n      \"dolor_f68\": -70870726,\n      \"reprehenderit_d5c\": true\n    },\n    \"metadata\": {\n      \"occaecat8\": \"in ullamco\"\n    },\n    \"query_name\": \"<string>\",\n    \"last_modified_date\": \"<dateTime>\"\n  },\n  {\n    \"query\": {\n      \"Ut_7\": 33732924.765272185,\n      \"voluptate_e\": \"dolore Duis sed ex\",\n      \"pariaturafd\": false,\n      \"Lorem_f4\": false\n    },\n    \"metadata\": {\n      \"in4b\": \"eiusmod id do ut in\",\n      \"irure98\": -20480572.63120468\n    },\n    \"query_name\": \"<string>\",\n    \"last_modified_date\": \"<dateTime>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:59:49.000Z",
+                          "updatedAt": "2026-07-28T01:59:49.000Z",
+                          "uid": "35240-51996b2d-3b1d-458e-a7d9-c4e59e9f6147"
+                        },
+                        {
+                          "id": "96b5ccfe-6c17-4119-bbd5-8149184f57ba",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/saved",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "saved"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:59:49.000Z",
+                          "updatedAt": "2026-07-28T01:59:49.000Z",
+                          "uid": "35240-96b5ccfe-6c17-4119-bbd5-8149184f57ba"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:59:49.000Z",
+                      "updatedAt": "2026-07-28T01:59:49.000Z",
+                      "uid": "35240-84068132-6ff4-4aa2-b5e9-5625eb74643b"
+                    }
+                  ],
+                  "id": "e1738a35-e2cd-4b4c-b807-6c9c29338acf",
+                  "createdAt": "2026-07-28T01:59:49.000Z",
+                  "updatedAt": "2026-07-28T01:59:49.000Z",
+                  "uid": "35240-e1738a35-e2cd-4b4c-b807-6c9c29338acf"
+                }
+              ],
+              "id": "0ec9dc6b-20a7-4179-8220-89a8d0ae77cc",
+              "createdAt": "2026-07-28T01:59:49.000Z",
+              "updatedAt": "2026-07-28T01:59:49.000Z",
+              "uid": "35240-0ec9dc6b-20a7-4179-8220-89a8d0ae77cc"
+            }
+          ],
+          "id": "d64b161f-7040-4a51-9e02-647595794f2a",
+          "createdAt": "2026-07-28T01:59:49.000Z",
+          "updatedAt": "2026-07-28T01:59:49.000Z",
+          "uid": "35240-d64b161f-7040-4a51-9e02-647595794f2a"
+        }
+      ],
+      "id": "309381c4-db4d-45c8-8b46-7d87d99a2e68",
+      "createdAt": "2026-07-28T01:59:49.000Z",
+      "updatedAt": "2026-07-28T01:59:49.000Z",
+      "uid": "35240-309381c4-db4d-45c8-8b46-7d87d99a2e68"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.keen.io/3.0"
+    }
+  ]
+}

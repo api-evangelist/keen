@@ -1,0 +1,329 @@
+{
+  "info": {
+    "_postman_id": "61a59375-c64d-4952-95cc-9f278fed159c",
+    "name": "Keen Cached Queries Extractions API",
+    "description": "The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are automatically refreshed on a schedule. Cached queries improve performance for frequently accessed analytics by storing pre-computed results, making them ideal for powering dashboards and embedded analytics experiences without incurring per-request rate limits.\n\nContact Support:\n Name: Keen Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:00:14.000Z",
+    "updatedAt": "2026-07-28T02:00:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-61a59375-c64d-4952-95cc-9f278fed159c"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "queries",
+              "item": [
+                {
+                  "name": "extraction",
+                  "item": [
+                    {
+                      "name": "Keen Extract events synchronously",
+                      "id": "11b8aad2-3ff6-4e2b-b4ab-8d582e296144",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/queries/extraction?event_collection=<string>&timeframe=<string>&filters=<string>&latest=<integer>&email_address=<email>&property_names=<string>&timezone=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "queries",
+                            "extraction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Event collection to extract from.",
+                              "key": "event_collection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Relative or absolute time frame for the extraction.",
+                              "key": "timeframe",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "JSON-encoded array of filter objects.",
+                              "key": "filters",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the response to the latest N events.",
+                              "key": "latest",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "When provided, runs extraction asynchronously and emails a result link.",
+                              "key": "email_address",
+                              "value": "<email>"
+                            },
+                            {
+                              "description": "Comma-separated list of property names to include.",
+                              "key": "property_names",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Time zone offset for relative timeframes.",
+                              "key": "timezone",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "e6c725bb-ab2d-4628-a28f-343cc46062e0",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Keen project identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns up to 100,000 raw events from the specified event collection that match the supplied filters and time frame. For larger result sets, use the asynchronous extraction by supplying an email_address."
+                      },
+                      "response": [
+                        {
+                          "id": "1d2c5ec4-8193-4683-a828-a21945af4885",
+                          "name": "Extraction result.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/extraction?event_collection=<string>&timeframe=<string>&filters=<string>&latest=<integer>&email_address=<email>&property_names=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "extraction"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Event collection to extract from.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the extraction.",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Limit the response to the latest N events.",
+                                  "key": "latest",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "When provided, runs extraction asynchronously and emails a result link.",
+                                  "key": "email_address",
+                                  "value": "<email>"
+                                },
+                                {
+                                  "description": "Comma-separated list of property names to include.",
+                                  "key": "property_names",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": [\n    {\n      \"incididunt_47\": -44300190.84941512,\n      \"euf\": false\n    },\n    {\n      \"incididunt_5d9\": false\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:00:14.000Z",
+                          "updatedAt": "2026-07-28T02:00:14.000Z",
+                          "uid": "35240-1d2c5ec4-8193-4683-a828-a21945af4885"
+                        },
+                        {
+                          "id": "c4b193e1-37be-487f-94ed-e8592c1c7d23",
+                          "name": "Missing or invalid API key.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/queries/extraction?event_collection=<string>&timeframe=<string>&filters=<string>&latest=<integer>&email_address=<email>&property_names=<string>&timezone=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "queries",
+                                "extraction"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Event collection to extract from.",
+                                  "key": "event_collection",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Relative or absolute time frame for the extraction.",
+                                  "key": "timeframe",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "JSON-encoded array of filter objects.",
+                                  "key": "filters",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Limit the response to the latest N events.",
+                                  "key": "latest",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "When provided, runs extraction asynchronously and emails a result link.",
+                                  "key": "email_address",
+                                  "value": "<email>"
+                                },
+                                {
+                                  "description": "Comma-separated list of property names to include.",
+                                  "key": "property_names",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Time zone offset for relative timeframes.",
+                                  "key": "timezone",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:00:14.000Z",
+                          "updatedAt": "2026-07-28T02:00:14.000Z",
+                          "uid": "35240-c4b193e1-37be-487f-94ed-e8592c1c7d23"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:00:14.000Z",
+                      "updatedAt": "2026-07-28T02:00:14.000Z",
+                      "uid": "35240-11b8aad2-3ff6-4e2b-b4ab-8d582e296144"
+                    }
+                  ],
+                  "id": "39e34302-44cf-416f-9f26-3284d9f8f724",
+                  "createdAt": "2026-07-28T02:00:14.000Z",
+                  "updatedAt": "2026-07-28T02:00:14.000Z",
+                  "uid": "35240-39e34302-44cf-416f-9f26-3284d9f8f724"
+                }
+              ],
+              "id": "edefa1a9-8b14-4817-b452-a2dbb3138e70",
+              "createdAt": "2026-07-28T02:00:14.000Z",
+              "updatedAt": "2026-07-28T02:00:14.000Z",
+              "uid": "35240-edefa1a9-8b14-4817-b452-a2dbb3138e70"
+            }
+          ],
+          "id": "e820b612-07a9-4d1a-9eaf-5dfa5d8c5040",
+          "createdAt": "2026-07-28T02:00:14.000Z",
+          "updatedAt": "2026-07-28T02:00:14.000Z",
+          "uid": "35240-e820b612-07a9-4d1a-9eaf-5dfa5d8c5040"
+        }
+      ],
+      "id": "eb7b168c-f24c-40e6-9738-48dc15b78e1a",
+      "createdAt": "2026-07-28T02:00:14.000Z",
+      "updatedAt": "2026-07-28T02:00:14.000Z",
+      "uid": "35240-eb7b168c-f24c-40e6-9738-48dc15b78e1a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.keen.io/3.0"
+    }
+  ]
+}
