@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keen Cached Queries Events API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Keen Record a single event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.keen.io/3.0/projects/:projectId/events/:eventCollection",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              },
+              {
+                "name": "eventCollection",
+                "value": "",
+                "type": "path",
+                "description": "Name of the event collection."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records a single event in the specified event collection for the given Keen project. The request body is an arbitrary JSON object whose properties become event properties. Requires a Write Key with permission to record events into the project."
+        },
+        {
+          "info": {
+            "name": "Keen Record multiple events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.keen.io/3.0/projects/:projectId/events",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Keen project identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records multiple events across one or more event collections in a single request. The body is a JSON object whose keys are event collection names and whose values are arrays of event objects. Requires a Write Key with permission to record events."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

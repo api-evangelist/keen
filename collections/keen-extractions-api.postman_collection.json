@@ -1,0 +1,304 @@
+{
+  "item": [
+    {
+      "id": "7c36b8d3-a60f-43a1-82ca-8d83c3e56b9b",
+      "name": "Extractions",
+      "description": {
+        "content": "Extract raw event data from Keen event collections.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0b8c2c39-b951-41ab-817a-1a43a9c2d88a",
+          "name": "Keen Extract events synchronously",
+          "request": {
+            "name": "Keen Extract events synchronously",
+            "description": {
+              "content": "Returns up to 100,000 raw events from the specified event collection that match the supplied filters and time frame. For larger result sets, use the asynchronous extraction by supplying an email_address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "queries",
+                "extraction"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "event_collection",
+                  "value": "<string>",
+                  "description": "(Required) Event collection to extract from."
+                },
+                {
+                  "disabled": false,
+                  "key": "timeframe",
+                  "value": "<string>",
+                  "description": "(Required) Relative or absolute time frame for the extraction."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>",
+                  "description": "JSON-encoded array of filter objects."
+                },
+                {
+                  "disabled": false,
+                  "key": "latest",
+                  "value": "<integer>",
+                  "description": "Limit the response to the latest N events."
+                },
+                {
+                  "disabled": false,
+                  "key": "email_address",
+                  "value": "<email>",
+                  "description": "When provided, runs extraction asynchronously and emails a result link."
+                },
+                {
+                  "disabled": false,
+                  "key": "property_names",
+                  "value": "<string>",
+                  "description": "Comma-separated list of property names to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "Time zone offset for relative timeframes."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) Keen project identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6bee691a-a2f2-45db-a7c8-148a4631b8e8",
+              "name": "Extraction result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "queries",
+                    "extraction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event_collection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeframe",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latest",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "email_address",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "property_names",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) Keen project identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": [\n    {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "403c662c-562e-4e4a-98ad-73f1aa6e957e",
+              "name": "Missing or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "queries",
+                    "extraction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event_collection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeframe",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latest",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "email_address",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "property_names",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) Keen project identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.keen.io/3.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "636057db-5e55-4242-a432-c4c9304448e9",
+    "name": "Keen Cached Queries Extractions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are automatically refreshed on a schedule. Cached queries improve performance for frequently accessed analytics by storing pre-computed results, making them ideal for powering dashboards and embedded analytics experiences without incurring per-request rate limits.\n\nContact Support:\n Name: Keen Support",
+      "type": "text/plain"
+    }
+  }
+}

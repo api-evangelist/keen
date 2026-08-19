@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "70a60130-60c7-42c1-909d-3db0f26bedf5",
+      "id": "fa5b9b7b-7239-46d4-8441-68f1d764eb68",
       "name": "Saved Queries",
       "description": {
         "content": "Create, manage, and execute reusable saved queries.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "8b608d24-6486-4ddc-a326-0526a784bbbe",
+          "id": "d2eaf814-4c40-46d3-8034-0de08a0db1f2",
           "name": "Keen List saved queries",
           "request": {
             "name": "Keen List saved queries",
@@ -49,7 +49,7 @@
           },
           "response": [
             {
-              "id": "250295f9-ce5b-4a4c-bf93-6aedd52a696d",
+              "id": "b4eeb227-14bc-4d8e-b1eb-5a632ffa6d9c",
               "name": "List of saved query metadata.",
               "originalRequest": {
                 "url": {
@@ -98,12 +98,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"query\": {\n      \"key_0\": 587\n    },\n    \"metadata\": {\n      \"key_0\": 3737,\n      \"key_1\": 2905.6717012299605\n    },\n    \"query_name\": \"string\",\n    \"last_modified_date\": \"2018-03-05T09:29:22.314Z\"\n  },\n  {\n    \"query\": {\n      \"key_0\": \"string\"\n    },\n    \"metadata\": {\n      \"key_0\": true\n    },\n    \"query_name\": \"string\",\n    \"last_modified_date\": \"1975-07-17T20:16:48.601Z\"\n  }\n]",
+              "body": "[\n  {\n    \"query\": {\n      \"key_0\": 5396\n    },\n    \"metadata\": {\n      \"key_0\": true\n    },\n    \"query_name\": \"string\",\n    \"last_modified_date\": \"2007-04-15T06:47:00.651Z\"\n  },\n  {\n    \"query\": {\n      \"key_0\": false,\n      \"key_1\": 5818.518081401268,\n      \"key_2\": 6527.816558646631\n    },\n    \"metadata\": {\n      \"key_0\": 8371,\n      \"key_1\": 4854\n    },\n    \"query_name\": \"string\",\n    \"last_modified_date\": \"2001-03-27T00:58:40.298Z\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "abd88380-fd7a-4446-87d6-b5a59b107cdd",
+              "id": "7b8c8804-43aa-4ad1-88b6-0fc4eba7d674",
               "name": "Missing or invalid API key.",
               "originalRequest": {
                 "url": {
@@ -163,7 +163,7 @@
           }
         },
         {
-          "id": "75a0556a-b4f3-41bf-89b2-5d6d35cd150a",
+          "id": "f2436c37-c94d-43de-b0c0-4aaa6a6c3efd",
           "name": "Keen Get a saved query",
           "request": {
             "name": "Keen Get a saved query",
@@ -211,7 +211,7 @@
           },
           "response": [
             {
-              "id": "86bd8a61-207d-4c92-aa81-1130144e31d9",
+              "id": "efb255b7-499a-4de3-b851-d799500aab2f",
               "name": "Saved query definition.",
               "originalRequest": {
                 "url": {
@@ -268,12 +268,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"query\": {\n    \"key_0\": false\n  },\n  \"metadata\": {\n    \"key_0\": 3475.581102241385,\n    \"key_1\": \"string\"\n  },\n  \"query_name\": \"string\",\n  \"last_modified_date\": \"1953-10-15T03:06:48.600Z\"\n}",
+              "body": "{\n  \"query\": {\n    \"key_0\": \"string\",\n    \"key_1\": 542.6463663980163\n  },\n  \"metadata\": {\n    \"key_0\": 1552\n  },\n  \"query_name\": \"string\",\n  \"last_modified_date\": \"1967-06-26T16:00:19.645Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "5d7bd900-4882-4266-afd2-5ee5b61cd16a",
+              "id": "ce4b5ef4-8c73-4957-b173-75ae0df3693c",
               "name": "Missing or invalid API key.",
               "originalRequest": {
                 "url": {
@@ -335,7 +335,7 @@
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "b6124067-42fe-4688-9f7a-b3514a495b63",
+              "id": "f87a2869-6509-4b6b-85db-2b6db7852de0",
               "name": "Saved query not found.",
               "originalRequest": {
                 "url": {
@@ -399,7 +399,7 @@
           }
         },
         {
-          "id": "4d53e9b5-d8ac-44ce-a800-b940875e7f01",
+          "id": "a3460d6d-178b-435e-9121-909bf0c598b1",
           "name": "Keen Create or update a saved query",
           "request": {
             "name": "Keen Create or update a saved query",
@@ -450,7 +450,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"query\": {\n    \"key_0\": 5250.57191804102,\n    \"key_1\": 4580.102695223588,\n    \"key_2\": 5875.275807126055\n  },\n  \"metadata\": {\n    \"key_0\": false,\n    \"key_1\": false\n  }\n}",
+              "raw": "{\n  \"query\": {\n    \"key_0\": \"string\",\n    \"key_1\": 1663.6276525754456\n  },\n  \"metadata\": {\n    \"key_0\": 9517.292376279365,\n    \"key_1\": 6740.182032057368\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -460,7 +460,7 @@
           },
           "response": [
             {
-              "id": "ef06e6f5-a77c-48ed-9a9c-05674c565cdd",
+              "id": "f9e25a69-ad93-4e03-bd54-7810059adaf1",
               "name": "Saved query created or updated.",
               "originalRequest": {
                 "url": {
@@ -509,7 +509,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"query\": {\n    \"key_0\": true,\n    \"key_1\": 2994.5170264286703,\n    \"key_2\": \"string\"\n  },\n  \"metadata\": {\n    \"key_0\": false\n  }\n}",
+                  "raw": "{\n  \"query\": {\n    \"key_0\": 3054.285312748748,\n    \"key_1\": 9525,\n    \"key_2\": \"string\"\n  },\n  \"metadata\": {\n    \"key_0\": 5061.2813958800425\n  }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -525,12 +525,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"query\": {\n    \"key_0\": false\n  },\n  \"metadata\": {\n    \"key_0\": 3475.581102241385,\n    \"key_1\": \"string\"\n  },\n  \"query_name\": \"string\",\n  \"last_modified_date\": \"1953-10-15T03:06:48.600Z\"\n}",
+              "body": "{\n  \"query\": {\n    \"key_0\": \"string\",\n    \"key_1\": 542.6463663980163\n  },\n  \"metadata\": {\n    \"key_0\": 1552\n  },\n  \"query_name\": \"string\",\n  \"last_modified_date\": \"1967-06-26T16:00:19.645Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "376244ed-079f-4c9f-9947-3dc3a7d6e619",
+              "id": "48afd0a7-f5d3-42e2-b0b7-ea1bee3b72ab",
               "name": "Missing or invalid API key.",
               "originalRequest": {
                 "url": {
@@ -579,7 +579,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"query\": {\n    \"key_0\": true,\n    \"key_1\": 2994.5170264286703,\n    \"key_2\": \"string\"\n  },\n  \"metadata\": {\n    \"key_0\": false\n  }\n}",
+                  "raw": "{\n  \"query\": {\n    \"key_0\": 3054.285312748748,\n    \"key_1\": 9525,\n    \"key_2\": \"string\"\n  },\n  \"metadata\": {\n    \"key_0\": 5061.2813958800425\n  }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -606,7 +606,7 @@
           }
         },
         {
-          "id": "f9ff834a-0c27-4337-832e-732f7b77604b",
+          "id": "f9be96be-7873-44b6-aef7-f88752cc1481",
           "name": "Keen Delete a saved query",
           "request": {
             "name": "Keen Delete a saved query",
@@ -654,7 +654,7 @@
           },
           "response": [
             {
-              "id": "b62b3cea-c68c-48b9-8f5c-1aca62c577f1",
+              "id": "3ce880d5-6857-4978-9343-4ac699ef254f",
               "name": "Saved query deleted.",
               "originalRequest": {
                 "url": {
@@ -712,7 +712,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "c6502df9-478d-47a5-a744-0749f71e9ec9",
+              "id": "8f1b3b1e-5515-4682-a5c0-35d5147d7fab",
               "name": "Missing or invalid API key.",
               "originalRequest": {
                 "url": {
@@ -780,7 +780,7 @@
           }
         },
         {
-          "id": "81447175-a1eb-405b-a844-e12f5c388293",
+          "id": "73ff76c0-88aa-4815-9dcc-d6cf2027715e",
           "name": "Keen Run a saved query",
           "request": {
             "name": "Keen Run a saved query",
@@ -829,7 +829,7 @@
           },
           "response": [
             {
-              "id": "6d00e2e8-c037-441c-bfa9-4e60aeac29af",
+              "id": "2c096379-e49e-46dd-b8da-0e2db1cb72f6",
               "name": "Saved query result.",
               "originalRequest": {
                 "url": {
@@ -892,7 +892,7 @@
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "6dfb7e08-1292-4087-8ba0-5d73a80e8602",
+              "id": "35710a25-30a4-4533-aee7-c4dabde54f4f",
               "name": "Missing or invalid API key.",
               "originalRequest": {
                 "url": {
@@ -990,11 +990,11 @@
     ]
   },
   "info": {
-    "_postman_id": "a2ebf805-5e6c-41c0-8c02-d36e33ded284",
-    "name": "Keen Saved Queries API",
+    "_postman_id": "f2d14333-1e6d-4bf5-b9cb-183fa618db6e",
+    "name": "Keen Cached Queries Saved Queries API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "The Keen Saved Queries API enables developers to create and manage reusable query definitions. Saved queries store query parameters as named resources that can be retrieved and executed later, enabling consistent analytics across applications and simplifying the management of complex query configurations.\n\nContact Support:\n Name: Keen Support",
+      "content": "The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are automatically refreshed on a schedule. Cached queries improve performance for frequently accessed analytics by storing pre-computed results, making them ideal for powering dashboards and embedded analytics experiences without incurring per-request rate limits.\n\nContact Support:\n Name: Keen Support",
       "type": "text/plain"
     }
   }

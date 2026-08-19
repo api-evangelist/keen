@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Keen Saved Queries API",
+    "name": "Keen Cached Queries Saved Queries API",
     "version": "3.0"
   },
   "request": {

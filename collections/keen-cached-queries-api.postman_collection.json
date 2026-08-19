@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "e07082a2-cf3d-47ff-8669-abbb29df70c4",
+      "id": "cb66a84d-bc86-45a0-ba4f-4b8684b46eea",
       "name": "Cached Queries",
       "description": {
         "content": "Manage and retrieve cached queries that refresh on a schedule.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "6fe1eb20-d8f1-4017-8ce8-5960f597833b",
+          "id": "af537feb-6238-44f8-a97e-a6e864b2e1a9",
           "name": "Keen List cached queries",
           "request": {
             "name": "Keen List cached queries",
@@ -49,7 +49,7 @@
           },
           "response": [
             {
-              "id": "a7a4ee0c-a170-45bc-aa31-4b3a8cffadb5",
+              "id": "3f341e6b-8ee7-43c2-8648-451387ab89e5",
               "name": "List of cached query metadata.",
               "originalRequest": {
                 "url": {
@@ -98,12 +98,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"refresh_rate\": 1007,\n    \"query\": {\n      \"key_0\": 3860,\n      \"key_1\": \"string\",\n      \"key_2\": true\n    },\n    \"query_name\": \"string\",\n    \"last_modified_date\": \"1993-03-23T04:56:31.053Z\",\n    \"run_information\": {\n      \"key_0\": 9786.836678597678,\n      \"key_1\": 2064,\n      \"key_2\": 4762.219782652297,\n      \"key_3\": \"string\"\n    }\n  },\n  {\n    \"refresh_rate\": 7505,\n    \"query\": {\n      \"key_0\": 3950\n    },\n    \"query_name\": \"string\",\n    \"last_modified_date\": \"1974-02-23T05:51:24.796Z\",\n    \"run_information\": {\n      \"key_0\": true,\n      \"key_1\": true\n    }\n  }\n]",
+              "body": "[\n  {\n    \"refresh_rate\": 8859,\n    \"query\": {\n      \"key_0\": 9556.263087766903,\n      \"key_1\": 4806.995695754775\n    },\n    \"query_name\": \"string\",\n    \"last_modified_date\": \"1955-02-13T20:18:48.717Z\",\n    \"run_information\": {\n      \"key_0\": \"string\"\n    }\n  },\n  {\n    \"refresh_rate\": 9557,\n    \"query\": {\n      \"key_0\": \"string\",\n      \"key_1\": true\n    },\n    \"query_name\": \"string\",\n    \"last_modified_date\": \"1977-01-23T16:46:25.590Z\",\n    \"run_information\": {\n      \"key_0\": 6569.297677748137\n    }\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "84e6a9c4-0cb5-4e42-add0-dc6feef79652",
+              "id": "e18bba70-2ae4-4242-9597-80083b73271d",
               "name": "Missing or invalid API key.",
               "originalRequest": {
                 "url": {
@@ -163,7 +163,7 @@
           }
         },
         {
-          "id": "aa272d07-a825-428c-b771-67d8142dac11",
+          "id": "524e1478-30b2-4fcd-ac3d-b0d47a03efb5",
           "name": "Keen Get a cached query",
           "request": {
             "name": "Keen Get a cached query",
@@ -211,7 +211,7 @@
           },
           "response": [
             {
-              "id": "1e4889e5-d402-4564-9ac8-62b47a7b6a7c",
+              "id": "662a9a26-2255-4fe9-a43d-f41cc347ca0f",
               "name": "Cached query definition.",
               "originalRequest": {
                 "url": {
@@ -268,12 +268,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"refresh_rate\": 8115,\n  \"query\": {\n    \"key_0\": 4878.289005957309,\n    \"key_1\": \"string\",\n    \"key_2\": true\n  },\n  \"query_name\": \"string\",\n  \"last_modified_date\": \"2007-01-01T14:54:41.996Z\",\n  \"run_information\": {\n    \"key_0\": 2337.8083703332286,\n    \"key_1\": true\n  }\n}",
+              "body": "{\n  \"refresh_rate\": 6826,\n  \"query\": {\n    \"key_0\": 9477\n  },\n  \"query_name\": \"string\",\n  \"last_modified_date\": \"1988-10-14T08:25:29.175Z\",\n  \"run_information\": {\n    \"key_0\": true,\n    \"key_1\": true\n  }\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "db53bd47-6ab5-4e44-8c41-468de24e4143",
+              "id": "fff0ce54-29dc-45be-b008-743bc47109c0",
               "name": "Missing or invalid API key.",
               "originalRequest": {
                 "url": {
@@ -335,7 +335,7 @@
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "4d7aac7f-ab84-4b21-9ace-3e555eb3a54f",
+              "id": "79504866-a32f-4a26-a817-8fedcdb6fac0",
               "name": "Cached query not found.",
               "originalRequest": {
                 "url": {
@@ -399,7 +399,7 @@
           }
         },
         {
-          "id": "531d13ea-65c9-4654-827c-7bee3c5b796e",
+          "id": "ddedc0e6-0fd3-4b57-bee7-06651e1aafff",
           "name": "Keen Create or update a cached query",
           "request": {
             "name": "Keen Create or update a cached query",
@@ -450,7 +450,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"refresh_rate\": \"<integer>\",\n  \"query\": {\n    \"key_0\": 4714,\n    \"key_1\": \"string\"\n  }\n}",
+              "raw": "{\n  \"refresh_rate\": \"<integer>\",\n  \"query\": {\n    \"key_0\": false\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -460,7 +460,7 @@
           },
           "response": [
             {
-              "id": "d5cf3277-b102-4353-8095-fc53aa3bec3c",
+              "id": "ab181c12-ed00-44c7-af67-fa4c2c165701",
               "name": "Cached query created or updated.",
               "originalRequest": {
                 "url": {
@@ -509,7 +509,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"refresh_rate\": \"<integer>\",\n  \"query\": {\n    \"key_0\": 5129.5852959285685\n  }\n}",
+                  "raw": "{\n  \"refresh_rate\": \"<integer>\",\n  \"query\": {\n    \"key_0\": false,\n    \"key_1\": 1729\n  }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -525,12 +525,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"refresh_rate\": 8115,\n  \"query\": {\n    \"key_0\": 4878.289005957309,\n    \"key_1\": \"string\",\n    \"key_2\": true\n  },\n  \"query_name\": \"string\",\n  \"last_modified_date\": \"2007-01-01T14:54:41.996Z\",\n  \"run_information\": {\n    \"key_0\": 2337.8083703332286,\n    \"key_1\": true\n  }\n}",
+              "body": "{\n  \"refresh_rate\": 6826,\n  \"query\": {\n    \"key_0\": 9477\n  },\n  \"query_name\": \"string\",\n  \"last_modified_date\": \"1988-10-14T08:25:29.175Z\",\n  \"run_information\": {\n    \"key_0\": true,\n    \"key_1\": true\n  }\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "57d6abb1-4486-4d26-b618-b1c34a169751",
+              "id": "e0c9d147-238c-44ed-961a-6e37db7cb882",
               "name": "Missing or invalid API key.",
               "originalRequest": {
                 "url": {
@@ -579,7 +579,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"refresh_rate\": \"<integer>\",\n  \"query\": {\n    \"key_0\": 5129.5852959285685\n  }\n}",
+                  "raw": "{\n  \"refresh_rate\": \"<integer>\",\n  \"query\": {\n    \"key_0\": false,\n    \"key_1\": 1729\n  }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -606,7 +606,7 @@
           }
         },
         {
-          "id": "c4434df1-5e6b-41b2-a2f2-a37ab1da7425",
+          "id": "a7035886-e094-465b-adb0-69d770292432",
           "name": "Keen Delete a cached query",
           "request": {
             "name": "Keen Delete a cached query",
@@ -654,7 +654,7 @@
           },
           "response": [
             {
-              "id": "51ccc232-5960-4509-9d1f-684638ac929d",
+              "id": "23852a7f-d42e-4003-9df2-4d0513837846",
               "name": "Cached query deleted.",
               "originalRequest": {
                 "url": {
@@ -712,7 +712,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "dd8c117b-1a35-49ca-bcda-00de92d278c4",
+              "id": "94ea161e-8449-45a3-aa18-e9ad93aa5935",
               "name": "Missing or invalid API key.",
               "originalRequest": {
                 "url": {
@@ -780,7 +780,7 @@
           }
         },
         {
-          "id": "fd6a612c-0c96-4c1a-8cae-3dfefd01512b",
+          "id": "96b2b21b-896a-4ed9-8d30-1697e33693bb",
           "name": "Keen Get cached query result",
           "request": {
             "name": "Keen Get cached query result",
@@ -829,7 +829,7 @@
           },
           "response": [
             {
-              "id": "1ff0defa-d767-42e1-a034-b4d7d93e45f9",
+              "id": "3dc3a573-02fd-4ffe-858a-bd7bfa92fd76",
               "name": "Cached query result.",
               "originalRequest": {
                 "url": {
@@ -892,7 +892,7 @@
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "eb7f7568-2891-421a-b08e-6a1edc465742",
+              "id": "33ea095d-e15d-409c-8f70-77f246f30409",
               "name": "Missing or invalid API key.",
               "originalRequest": {
                 "url": {
@@ -990,7 +990,7 @@
     ]
   },
   "info": {
-    "_postman_id": "6d0fdc8a-26b1-4739-8a47-d14a709e644b",
+    "_postman_id": "b27ca14d-1320-4671-8995-7d3bde911fb9",
     "name": "Keen Cached Queries API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
