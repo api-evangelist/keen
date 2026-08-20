@@ -40,6 +40,11 @@ apis:
   - Analytics
   - Caching
   - Performance
+  - Query
+  tags_raw:
+  - Analytics
+  - Caching
+  - Performance
   - Queries
   properties:
   - type: Documentation
@@ -55,6 +60,10 @@ apis:
   humanURL: https://keen.io/docs/api/#saved-queries
   tags:
   - Analytics
+  - Query
+  - Saved Queries
+  tags_raw:
+  - Analytics
   - Queries
   - Saved Queries
   properties:
@@ -67,6 +76,8 @@ apis:
   description: Inspect event collection schemas and properties for a project.
   humanURL: https://keen.io/docs/api/#record-a-single-event
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
@@ -82,6 +93,8 @@ apis:
   description: Record and inspect events stored in Keen event collections.
   humanURL: https://keen.io/docs/api/#record-a-single-event
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -112,6 +125,8 @@ apis:
   description: Run analytical queries against Keen event collections.
   humanURL: https://keen.io/docs/api/#record-a-single-event
   tags:
+  - Query
+  tags_raw:
   - Queries
   properties:
   - type: OpenAPI
