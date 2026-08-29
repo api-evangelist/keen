@@ -4,6 +4,18 @@ description: Keen is an event analytics platform and API that enables developers
   and visualize custom event data. It provides a flexible RESTful API for streaming events, running multi-dimensional
   queries, and building embedded analytics dashboards for products and internal tools.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
