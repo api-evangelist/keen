@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Keen Cached Queries API
   description: The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are automatically refreshed on a schedule. Cached queries improve performance for frequently accessed analytics by storing pre-computed results, making them ideal for powering dashboards and embedded analytics experiences without incurring per-request rate limits.
@@ -115,6 +115,19 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    CachedQueryDefinition:
+      type: object
+      required:
+      - refresh_rate
+      - query
+      properties:
+        refresh_rate:
+          type: integer
+          description: Refresh interval in seconds.
+        query:
+          type: object
+          additionalProperties: true
+          description: Underlying query definition (analysis type and parameters).
     CachedQuery:
       allOf:
       - $ref: '#/components/schemas/CachedQueryDefinition'
@@ -135,34 +148,6 @@ components:
           type: string
         message:
           type: string
-    CachedQueryDefinition:
-      type: object
-      required:
-      - refresh_rate
-      - query
-      properties:
-        refresh_rate:
-          type: integer
-          description: Refresh interval in seconds.
-        query:
-          type: object
-          additionalProperties: true
-          description: Underlying query definition (analysis type and parameters).
-  parameters:
-    queryName:
-      name: queryName
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Name of the cached query.
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Keen project identifier.
   responses:
     Unauthorized:
       description: Missing or invalid API key.
@@ -170,6 +155,21 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Keen project identifier.
+    queryName:
+      name: queryName
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Name of the cached query.
   securitySchemes:
     masterKey:
       type: apiKey

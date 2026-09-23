@@ -1,24 +1,37 @@
 {
   "provider": "keen",
   "sources": [
+    "_original/keen-data-extraction-api-openapi.yml",
+    "_original/keen-event-collection-api-openapi.yml",
+    "_original/keen-query-api-openapi.yml",
     "keen-cached-queries-api-openapi.yml",
-    "keen-collections-api-openapi.yml",
-    "keen-events-api-openapi.yml",
-    "keen-extractions-api-openapi.yml",
-    "keen-queries-api-openapi.yml",
     "keen-saved-queries-api-openapi.yml"
   ],
   "outputs": [
-    "keen-cached-queries-api-openapi.yml",
+    "keen-extractions-api-openapi.yml",
     "keen-collections-api-openapi.yml",
     "keen-events-api-openapi.yml",
-    "keen-extractions-api-openapi.yml",
     "keen-queries-api-openapi.yml",
+    "keen-cached-queries-api-openapi.yml",
     "keen-saved-queries-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
-  "warnings": [],
-  "notes": [],
-  "skipped": []
+  "warnings": [
+    "keen-cached-queries-api-openapi.yml: previously refined output kept for 5 operation(s) no archived document covers (e.g. /projects/{projectId}/queries/cached get, /projects/{projectId}/queries/cached/{queryName} delete, /projects/{projectId}/queries/cached/{queryName} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "keen-saved-queries-api-openapi.yml: previously refined output kept for 5 operation(s) no archived document covers (e.g. /projects/{projectId}/queries/saved get, /projects/{projectId}/queries/saved/{queryName} delete, /projects/{projectId}/queries/saved/{queryName} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "keen-data-extraction-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "keen-event-collection-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "keen-query-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "keen-collections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "keen-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "keen-extractions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "keen-queries-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
