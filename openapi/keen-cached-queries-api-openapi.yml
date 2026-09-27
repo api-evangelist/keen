@@ -115,19 +115,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    CachedQueryDefinition:
-      type: object
-      required:
-      - refresh_rate
-      - query
-      properties:
-        refresh_rate:
-          type: integer
-          description: Refresh interval in seconds.
-        query:
-          type: object
-          additionalProperties: true
-          description: Underlying query definition (analysis type and parameters).
     CachedQuery:
       allOf:
       - $ref: '#/components/schemas/CachedQueryDefinition'
@@ -148,21 +135,20 @@ components:
           type: string
         message:
           type: string
-  responses:
-    Unauthorized:
-      description: Missing or invalid API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    CachedQueryDefinition:
+      type: object
+      required:
+      - refresh_rate
+      - query
+      properties:
+        refresh_rate:
+          type: integer
+          description: Refresh interval in seconds.
+        query:
+          type: object
+          additionalProperties: true
+          description: Underlying query definition (analysis type and parameters).
   parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Keen project identifier.
     queryName:
       name: queryName
       in: path
@@ -170,6 +156,20 @@ components:
       schema:
         type: string
       description: Name of the cached query.
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Keen project identifier.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     masterKey:
       type: apiKey
