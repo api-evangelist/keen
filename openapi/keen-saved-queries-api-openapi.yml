@@ -114,6 +114,13 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
     queryName:
       name: queryName
@@ -130,6 +137,13 @@ components:
         type: string
       description: Keen project identifier.
   schemas:
+    Error:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
     SavedQuery:
       allOf:
       - $ref: '#/components/schemas/SavedQueryDefinition'
@@ -140,13 +154,6 @@ components:
           last_modified_date:
             type: string
             format: date-time
-    Error:
-      type: object
-      properties:
-        error_code:
-          type: string
-        message:
-          type: string
     SavedQueryDefinition:
       type: object
       required:
@@ -160,13 +167,6 @@ components:
           type: object
           additionalProperties: true
           description: Optional metadata for the saved query.
-  responses:
-    Unauthorized:
-      description: Missing or invalid API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     masterKey:
       type: apiKey

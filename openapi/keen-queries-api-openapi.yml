@@ -318,38 +318,14 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    QueryResult:
-      description: Query result returned successfully.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              result:
-                description: Result value or grouped/intervalled list of results.
-    Unauthorized:
-      description: Missing or invalid API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-  schemas:
-    Error:
-      type: object
-      properties:
-        error_code:
-          type: string
-        message:
-          type: string
   parameters:
-    eventCollectionQ:
-      name: event_collection
+    interval:
+      name: interval
       in: query
-      required: true
+      required: false
       schema:
         type: string
-      description: Name of the event collection to query.
+      description: Time-based grouping interval (e.g., daily, hourly).
     filters:
       name: filters
       in: query
@@ -364,20 +340,13 @@ components:
       schema:
         type: string
       description: Property name to group results by.
-    timezone:
-      name: timezone
+    eventCollectionQ:
+      name: event_collection
       in: query
-      required: false
-      schema:
-        type: string
-      description: Time zone offset for relative timeframes.
-    projectId:
-      name: projectId
-      in: path
       required: true
       schema:
         type: string
-      description: Keen project identifier.
+      description: Name of the event collection to query.
     targetProperty:
       name: target_property
       in: query
@@ -385,13 +354,13 @@ components:
       schema:
         type: string
       description: Property used as the target of the aggregation.
-    interval:
-      name: interval
+    timezone:
+      name: timezone
       in: query
       required: false
       schema:
         type: string
-      description: Time-based grouping interval (e.g., daily, hourly).
+      description: Time zone offset for relative timeframes.
     timeframe:
       name: timeframe
       in: query
@@ -399,6 +368,37 @@ components:
       schema:
         type: string
       description: Relative or absolute time frame for the query (e.g., this_7_days).
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Keen project identifier.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    QueryResult:
+      description: Query result returned successfully.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              result:
+                description: Result value or grouped/intervalled list of results.
+  schemas:
+    Error:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
   securitySchemes:
     readKey:
       type: apiKey
