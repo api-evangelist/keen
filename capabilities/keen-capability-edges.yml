@@ -1,0 +1,45 @@
+slug: keen
+provider: Keen
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Cached Queries
+  spec_file: keen-cached-queries-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.8
+  evidence: '"create, manage, and retrieve pre-defined queries that are automatically refreshed on a schedule
+    ... ideal for powering dashboards and embedded analytics experiences"; createOrUpdateCachedQuery,
+    getCachedQueryResult'
+  reason: Operations manage scheduled pre-computed analytic queries that power dashboards — analytics
+    and BI delivery.
+- tag: Queries
+  spec_file: keen-queries-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.8
+  evidence: '"exposes the analytical query types ... count, count_unique, sum, average, ... funnel, and
+    multi_analysis"; queryFunnel, queryMultiAnalysis'
+  reason: The operations run multi-dimensional analytical queries over event data — core analytics/BI
+    delivery capability.
+- tag: Saved Queries
+  spec_file: keen-saved-queries-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.75
+  evidence: listSavedQueries, createOrUpdateSavedQuery, runSavedQuery 'Keen Run a saved query'; SavedQueryDefinition
+  reason: Lifecycle and execution of stored analytic query definitions used for dashboards — analytics
+    and BI management.

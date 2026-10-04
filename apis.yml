@@ -151,6 +151,9 @@ apis:
   - type: Documentation
     url: https://keen.io/docs/api/#extractions
 common:
+- type: CapabilityMap
+  url: capabilities/keen-capability-edges.yml
+  name: Keen Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/keen/overview
 - type: AgenticAccess
