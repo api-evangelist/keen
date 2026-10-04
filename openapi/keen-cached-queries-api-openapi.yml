@@ -114,14 +114,29 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Keen project identifier.
+    queryName:
+      name: queryName
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Name of the cached query.
   schemas:
+    Error:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
     CachedQueryDefinition:
       type: object
       required:
@@ -135,13 +150,6 @@ components:
           type: object
           additionalProperties: true
           description: Underlying query definition (analysis type and parameters).
-    Error:
-      type: object
-      properties:
-        error_code:
-          type: string
-        message:
-          type: string
     CachedQuery:
       allOf:
       - $ref: '#/components/schemas/CachedQueryDefinition'
@@ -155,21 +163,13 @@ components:
           run_information:
             type: object
             additionalProperties: true
-  parameters:
-    queryName:
-      name: queryName
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Name of the cached query.
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Keen project identifier.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     masterKey:
       type: apiKey

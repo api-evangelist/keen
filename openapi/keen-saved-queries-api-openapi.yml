@@ -114,29 +114,20 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-  parameters:
-    queryName:
-      name: queryName
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Name of the saved query.
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Keen project identifier.
   schemas:
+    SavedQueryDefinition:
+      type: object
+      required:
+      - query
+      properties:
+        query:
+          type: object
+          additionalProperties: true
+          description: Underlying query definition (analysis type and parameters).
+        metadata:
+          type: object
+          additionalProperties: true
+          description: Optional metadata for the saved query.
     Error:
       type: object
       properties:
@@ -154,19 +145,28 @@ components:
           last_modified_date:
             type: string
             format: date-time
-    SavedQueryDefinition:
-      type: object
-      required:
-      - query
-      properties:
-        query:
-          type: object
-          additionalProperties: true
-          description: Underlying query definition (analysis type and parameters).
-        metadata:
-          type: object
-          additionalProperties: true
-          description: Optional metadata for the saved query.
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Keen project identifier.
+    queryName:
+      name: queryName
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Name of the saved query.
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     masterKey:
       type: apiKey
