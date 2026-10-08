@@ -151,6 +151,12 @@ apis:
   - type: Documentation
     url: https://keen.io/docs/api/#extractions
 common:
+- type: Plans
+  url: plans/keen-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/keen-rate-limits.yml
+- type: FinOps
+  url: finops/keen-finops.yml
 - type: CapabilityMap
   url: capabilities/keen-capability-edges.yml
   name: Keen Business Capability Map
