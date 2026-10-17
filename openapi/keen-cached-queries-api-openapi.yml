@@ -114,21 +114,6 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Keen project identifier.
-    queryName:
-      name: queryName
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Name of the cached query.
   schemas:
     Error:
       type: object
@@ -170,6 +155,21 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Keen project identifier.
+    queryName:
+      name: queryName
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Name of the cached query.
   securitySchemes:
     masterKey:
       type: apiKey
