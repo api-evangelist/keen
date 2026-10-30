@@ -1,4 +1,4 @@
-# Keen (keen)
+# Keen
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,145 +66,169 @@
 
 Keen is an event analytics platform and API that enables developers to collect, store, analyze, and visualize custom event data. It provides a flexible RESTful API for streaming events, running multi-dimensional queries, and building embedded analytics dashboards for products and internal tools.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/keen/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/keen/refs/heads/main/apis.yml)
+**Areas:** Analytics · Custom Events · Data Collection · Embedded Analytics · Event Analytics
 
-## Scope
+## Keen on APIs.io
 
-- **Type:** Index
+Everything profiled for Keen is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/keen/](https://apis.io/providers/keen/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Analytics
-- Custom Events
-- Data Collection
-- Embedded Analytics
-- Event Analytics
+- [Keen Cached Queries API](https://apis.io/apis/keen/cached-queries-api/) — The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are automatically refreshed on a schedule. Cached…
+- [Keen Saved Queries API](https://apis.io/apis/keen/saved-queries-api/) — The Keen Saved Queries API enables developers to create and manage reusable query definitions. Saved queries store query parameters as named resources that…
+- [Keen Collections API](https://apis.io/apis/keen/keen-collections-api/) — Inspect event collection schemas and properties for a project.
+- [Keen Events API](https://apis.io/apis/keen/keen-events-api/) — Record and inspect events stored in Keen event collections.
+- [Keen Extractions API](https://apis.io/apis/keen/keen-extractions-api/) — Extract raw event data from Keen event collections.
+- [Keen Queries API](https://apis.io/apis/keen/keen-queries-api/) — Run analytical queries against Keen event collections.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-26
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Keen Event Collection API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Keen Event Collection API enables developers to send individual or batched events to Keen for storage and analysis. Each event is a JSON object that can contain any arbitrary properties, giving developers full flexibility in defining their data model. The API supports single event recording, multi-event uploads across collections, and inspection of existing collections and properties.
+- [Keen Agentic Access](https://apis.io/agentic-access/keen/keen-agentic-access/)
 
-- **Human URL:** [https://keen.io/docs/api/#record-a-single-event](https://keen.io/docs/api/#record-a-single-event)
+#### JSON Schema (5)
 
-#### Tags
+The data models the API reads and writes.
 
-- Analytics
-- Data Collection
-- Events
-- Ingestion
+- [CachedQuery](https://apis.io/schemas/keen/keen-cachedquery/)
+- [CachedQueryDefinition](https://apis.io/schemas/keen/keen-cachedquerydefinition/)
+- [Error](https://apis.io/schemas/keen/keen-error/)
+- [SavedQuery](https://apis.io/schemas/keen/keen-savedquery/)
+- [SavedQueryDefinition](https://apis.io/schemas/keen/keen-savedquerydefinition/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://keen.io/docs/api/#record-a-single-event)
-- [OpenAPI](openapi/keen-event-collection-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/keen-event-collection-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/keen-event-collection-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Data models expressed in JSON Structure.
 
-### Keen Query API
+- [Keen Structure](https://apis.io/json-structure/keen/keen-structure/)
 
-The Keen Query API provides a comprehensive set of analytical query types including count, sum, average, minimum, maximum, percentile, median, count unique, select unique, funnel, and multi-analysis. Queries support filters, time frames, intervals, group-by, and time zone parameters for flexible multi-dimensional analysis of event data.
+#### Vocabulary (1)
 
-- **Human URL:** [https://keen.io/docs/api/#analyses](https://keen.io/docs/api/#analyses)
+The provider's domain terms, defined.
 
-#### Tags
+- [Keen Domain Vocabulary](https://apis.io/vocabularies/keen/keen-vocabulary/)
 
-- Aggregation
-- Analytics
-- Queries
-- Reporting
+#### Collections (15)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://keen.io/docs/api/#analyses)
-- [OpenAPI](openapi/keen-query-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/keen-query-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/keen-query-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Keen Cached Queries API](https://apis.io/collections/keen/open-keen-cached-queries-api/)
+- [Keen Cached Queries Collections API](https://apis.io/collections/keen/open-keen-collections-api/)
+- [Keen Data Extraction API](https://apis.io/collections/keen/open-keen-data-extraction-api/)
+- [Keen Event Collection API](https://apis.io/collections/keen/open-keen-event-collection-api/)
+- [Keen Cached Queries Events API](https://apis.io/collections/keen/open-keen-events-api/)
+- [Keen Cached Queries Extractions API](https://apis.io/collections/keen/open-keen-extractions-api/)
+- [Keen Cached Queries API](https://apis.io/collections/keen/open-keen-queries-api/)
+- [Keen Query API](https://apis.io/collections/keen/open-keen-query-api/)
+- [Keen Cached Queries Saved Queries API](https://apis.io/collections/keen/open-keen-saved-queries-api/)
+- [Keen Cached Queries API](https://apis.io/collections/keen/postman-keen-cached-queries-api/)
+- [Keen Cached Queries Collections API](https://apis.io/collections/keen/postman-keen-collections-api/)
+- [Keen Cached Queries Events API](https://apis.io/collections/keen/postman-keen-events-api/)
+- [Keen Cached Queries Extractions API](https://apis.io/collections/keen/postman-keen-extractions-api/)
+- [Keen Cached Queries API](https://apis.io/collections/keen/postman-keen-queries-api/)
+- [Keen Cached Queries Saved Queries API](https://apis.io/collections/keen/postman-keen-saved-queries-api/)
 
-### Keen Cached Queries API
+#### Governance rules (1)
 
-The Keen Cached Queries API allows developers to create, manage, and retrieve pre-defined queries that are automatically refreshed on a schedule. Cached queries improve performance for frequently accessed analytics by storing pre-computed results, making them ideal for powering dashboards and embedded analytics experiences.
+Spectral rulesets for the provider's contracts.
 
-- **Human URL:** [https://keen.io/docs/api/#cached-queries](https://keen.io/docs/api/#cached-queries)
+- [Keen — jsonschema rules](https://apis.io/rules/keen/keen-jsonschema-spectral-rules/)
 
-#### Tags
+#### Security (2)
 
-- Analytics
-- Caching
-- Performance
-- Queries
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Keen Authentication](https://apis.io/security/keen/keen-authentication/)
+- [Keen Domain Security](https://apis.io/security/keen/keen-domain-security/)
 
-- [Documentation](https://keen.io/docs/api/#cached-queries)
-- [OpenAPI](openapi/keen-cached-queries-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/keen-cached-queries-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/keen-cached-queries-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### Keen Saved Queries API
+Published plans, tiers and prices.
 
-The Keen Saved Queries API enables developers to create and manage reusable query definitions. Saved queries store query parameters as named resources that can be retrieved and executed later, enabling consistent analytics across applications and simplifying the management of complex query configurations.
+- [Keen Plans Pricing](https://apis.io/plans/keen/keen-plans-pricing/)
 
-- **Human URL:** [https://keen.io/docs/api/#saved-queries](https://keen.io/docs/api/#saved-queries)
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Analytics
-- Queries
-- Saved Queries
+- [Keen Rate Limits](https://apis.io/rate-limits/keen/keen-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://keen.io/docs/api/#saved-queries)
-- [OpenAPI](openapi/keen-saved-queries-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/keen-saved-queries-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/keen-saved-queries-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-### Keen Data Extraction API
+- [Keen Finops](https://apis.io/finops/keen/keen-finops/)
 
-The Keen Data Extraction API enables developers to retrieve raw event data from event collections. It supports filtering, sorting, and pagination of event records and is useful for exporting data for external analysis, auditing, or feeding data into other systems and processing pipelines.
+## Where to find this API
 
-- **Human URL:** [https://keen.io/docs/api/#extractions](https://keen.io/docs/api/#extractions)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags
-
-- Analytics
-- Data
-- Events
-- Export
-
-#### Properties
-
-- [Documentation](https://keen.io/docs/api/#extractions)
-- [OpenAPI](openapi/keen-data-extraction-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/keen-data-extraction-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/keen-data-extraction-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/keen-io)
 - [Website](https://keen.io)
 - [Documentation](https://keen.io/docs)
-- [A P I Documentation](https://keen.io/docs/api)
-- [Getting Started](https://keen.io/docs/getting-started)
-- [Blog](https://keen.io/blog)
+- [Getting started](https://keen.io/docs/getting-started)
 - [Pricing](https://keen.io/pricing)
-- [Git Hub](https://github.com/keen)
-- [Login](https://keen.io/login)
-- [Sign Up](https://keen.io/signup)
 - [Support](https://keen.io/support)
-- [S D Ks](https://keen.io/docs/sdks)
-- [Status Page](https://status.keen.io)
-- [Terms of Service](https://keen.io/terms-of-service)
-- [Privacy Policy](https://keen.io/privacy-policy)
+- [Blog](https://keen.io/blog)
+- [Terms of service](https://keen.io/terms-of-service)
+- [Privacy policy](https://keen.io/privacy-policy)
+- [Status](https://status.keen.io)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 47.8** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 51.4 |
+| Contract governance | 9.8 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 56.0 |
+| Access clarity | 35.5 |
+
+**Agent readiness 19.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 15.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/keen/](https://apis.io/providers/keen/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Keen: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/keen/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
